@@ -2,4 +2,6 @@
 
 (defclass t ()
   ()
-  (:metaclass built-in-class))
+  (:metaclass built-in-class)
+  (:documentation
+   "The class T is the root of the class hierarchy."))
