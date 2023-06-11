@@ -1,9 +1,5 @@
 (cl:in-package #:clostrophilia)
 
-;;; This function returns the unique number of the class, assigned
-;;; when the class is initialized or reinitialized.
-(defgeneric unique-number (class))
-
 ;;; For the specification of this generic function, see
 ;;; http://metamodular.com/CLOS-MOP/class-name.html
 (defgeneric class-name (class))
@@ -58,12 +54,7 @@
 (defgeneric (setf class-default-initargs) (default-initargs class))
 
 (defclass class (specializer)
-  ((%unique-number 
-    ;; FIXME: the unique numbers should be assigned during class
-    ;; finalization, and not here.
-    :initform (prog1 *class-unique-number* (incf *class-unique-number*))
-    :reader unique-number)
-   (%name 
+  ((%name 
     :initform nil
     :initarg :name 
     ;; There is a specified function named (SETF CLASS-NAME), but it
