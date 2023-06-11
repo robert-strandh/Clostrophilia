@@ -1,9 +1,5 @@
 (cl:in-package #:clostrophilia)
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;
-;;; Class METHOD-COMBINATION.
-
 (defgeneric template (method-combination))
 
 (defgeneric variant-signature (method-combination))

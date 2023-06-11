@@ -1,10 +1,6 @@
 (cl:in-package #:clostrophilia)
    
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;
-;;; Class REGULAR-CLASS.
-;;;
-;;; A common superclass of STANDARD-CLASS and
+;;; This class is a common superclass of STANDARD-CLASS and
 ;;; FUNCALLABLE-STANDARD-CLASS.
 ;;;
 ;;; This class is not specified by the AMOP, but we are allowed to

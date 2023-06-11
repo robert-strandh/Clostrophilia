@@ -1,9 +1,5 @@
 (cl:in-package #:clostrophilia)
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;
-;;; Class FUNCALLABLE-STANDARD-OBJECT.
-
 (defgeneric entry-point (funcallable-standard-object))
 
 (defgeneric (setf entry-point) (entry-point funcallable-standard-object))

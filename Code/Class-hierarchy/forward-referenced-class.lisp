@@ -1,9 +1,5 @@
 (cl:in-package #:clostrophilia)
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;
-;;; Class FORWARD-REFERENCED-CLASS.
-
 (defclass forward-referenced-class (class)
   ((%direct-default-initargs
     ;; The AMOP says that CLASS-DIRECT-DEFAULT-INITARGS should

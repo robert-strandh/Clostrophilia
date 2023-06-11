@@ -1,9 +1,5 @@
 (cl:in-package #:clostrophilia)
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;
-;;; Class BUILT-IN-CLASS.
-;;;
 ;;; The AMOP says that the readers CLASS-DIRECT-DEFAULT-INITARGS,
 ;;; CLASS-DIRECT-SLOTS, CLASS-DEFAULT-INITARGS, and CLASS-SLOTS should
 ;;; return the empty list for a built-in class.
