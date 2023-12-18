@@ -7,4 +7,5 @@
    (:file "remove-direct-subclass-defmethod")
    (:file "add-direct-subclass-defgeneric")
    (:file "add-direct-subclass-defmethod")
-   (:file "initialize-instance-defmethods")))
+   (:file "initialize-instance-defmethods")
+   (:file "reinitialize-instance-defmethods")))
