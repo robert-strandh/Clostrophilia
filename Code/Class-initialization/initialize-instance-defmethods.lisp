@@ -8,6 +8,7 @@
 
 (defmethod initialize-instance :around
     ((class class) &rest initargs &key direct-superclasses &allow-other-keys)
+  (check-superclass-list class direct-superclasses)
   (let ((defaulted-direct-superclasses
           (if (null direct-superclasses)
               (default-superclasses class)

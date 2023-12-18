@@ -9,8 +9,9 @@
 
 (defmethod reinitialize-instance :before
     ((class class)
-     &key (direct-superclasses nil direct-superclasses-supplied-p)
+     &key (direct-superclasses '() direct-superclasses-supplied-p)
      &allow-other-keys)
+  (check-superclass-list class direct-superclasses)
   (when direct-superclasses-supplied-p
     (let* ((old (class-direct-superclasses class))
            (obsolete (set-difference old direct-superclasses))
