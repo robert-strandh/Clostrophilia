@@ -1,4 +1,4 @@
-(cl:in-package #:sicl-clos)
+(cl:in-package #:clostrophilia)
 
 ;;; The argument precedence order is (SUPERCLASS CLASS).  Therefore,
 ;;; when both arguments are built-in classes, the third method is more
