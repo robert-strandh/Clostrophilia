@@ -1,4 +1,4 @@
-(cl:in-package #:clostrophilias)
+(cl:in-package #:clostrophilia)
 
 (defclass t ()
   ()
