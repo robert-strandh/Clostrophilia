@@ -8,6 +8,8 @@
    (:file "remove-direct-subclass-defmethod")
    (:file "add-direct-subclass-defgeneric")
    (:file "add-direct-subclass-defmethod")
+   (:file "validate-superclass-defgeneric")
+   (:file "validate-superclass-defmethods")
    (:file "check-superclass-list-defun")
    (:file "initialize-instance-defmethods")
    (:file "reinitialize-instance-defmethods")))
