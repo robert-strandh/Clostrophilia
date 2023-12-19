@@ -1,4 +1,4 @@
-(cl:in-package #:claustrophilia)
+(cl:in-package #:clostrophilia)
 
 ;;; The MOP specification says that if :DIRECT-SUPERCLASSES keyword
 ;;; argument is given when the class is reinitialized, then we must
