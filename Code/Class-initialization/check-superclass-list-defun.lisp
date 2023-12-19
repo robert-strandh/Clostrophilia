@@ -1,7 +1,7 @@
 (cl:in-package #:clostrophilia)
 
 (defun check-superclass-list (class superclasses)
-  (unless (ecclesia:proper-list-p superclass-list)
+  (unless (ecclesia:proper-list-p superclasses)
     (error 'superclasses-must-be-proper-list
            :superclasses superclasses))
   (loop for superclass in superclasses
