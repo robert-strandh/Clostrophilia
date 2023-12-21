@@ -2,9 +2,11 @@
 
 (defun short-form-expander (name options)
   (unless (ecclesia:proper-list-p options)
-    (error "options must be a proper list"))
+    (error 'options-must-be-proper-list
+           :options options))
   (unless (evenp (length options))
-    (error "options must be a list with an even number of elements"))
+    (error 'options-must-have-an-even-number-of-elements
+           :options options))
   (let ((documentation nil)
         (identity-with-one-argument nil)
         (operator nil))
