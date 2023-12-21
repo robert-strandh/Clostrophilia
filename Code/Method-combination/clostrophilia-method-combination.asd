@@ -6,4 +6,5 @@
   :serial t
   :components
   ((:file "accessor-defgenerics")
-   (:file "method-group-specifier")))
+   (:file "method-group-specifier")
+   (:file "method-discriminator")))
