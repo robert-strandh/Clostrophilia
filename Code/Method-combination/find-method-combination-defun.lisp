@@ -3,7 +3,8 @@
 (defun find-method-combination (name options)
   (let ((template (find-method-combination-template name)))
     (when (null template)
-      (error "no such method combination ~s" name))
+      (error 'unknown-method-combination
+             :name name))
     (let* ((variant-determiner (variant-signature-determiner template))
            (variant-signature (apply variant-determiner options)))
       (loop for variant in (variants template)
