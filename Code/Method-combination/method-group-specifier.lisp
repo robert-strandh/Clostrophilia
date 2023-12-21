@@ -30,7 +30,8 @@
          (error 'name-of-method-group-specifier-must-be-symbol
                 :name (first method-group-specifier)))
         ((null (rest method-group-specifier))
-         (error "method group specifier must have a predicate or qualifier pattern(s)"))
+         (error 'invalid-method-group-specifier
+                :group-specifier method-group-specifier))
         (t
          (let* ((option-names '(:description :order :required))
                 (position (position-if (lambda (x) (member x option-names))
