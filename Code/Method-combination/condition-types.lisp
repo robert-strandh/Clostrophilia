@@ -81,3 +81,13 @@
              "The :OPERATOR option was given more than once in:~@
               ~s"
              (options condition)))))
+
+(define-condition method-group-specifier-must-be-proper-list (error)
+  ((%group-specifier :initarg :group-specifier :reader group-specifier))
+  (:report
+   (lambda (condition stream)
+     (format stream
+             "Method group specifier must be a proper list,~@
+              but the following was found instead:~@
+              ~s"
+             (group-specifier condition)))))
