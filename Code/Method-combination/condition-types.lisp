@@ -62,7 +62,7 @@
               ~s"
              (options condition)))))
 
-(define-condition option-identity-with-one-argument--given-more-than-once
+(define-condition option-identity-with-one-argument-given-more-than-once
     (error)
   ((%options :initarg :options :reader options))
   (:report
@@ -73,8 +73,7 @@
               ~s"
              (options condition)))))
 
-(define-condition option-operator-given-more-than-once
-    (error)
+(define-condition option-operator-given-more-than-once (error)
   ((%options :initarg :options :reader options))
   (:report
    (lambda (condition stream)
