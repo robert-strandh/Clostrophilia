@@ -52,3 +52,12 @@
               but the following was found instead:~@
               ~s"
              (options condition)))))
+
+(define-condition option-documentation-given-more-than-once (error)
+  ((%options :initarg :options :reader options))
+  (:report
+   (lambda (condition stream)
+     (format stream
+             "The :DOCUMENTATION option was given more than once in:~@
+              ~s"
+             (options condition)))))
