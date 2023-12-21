@@ -19,7 +19,8 @@
                 (setf documentation (list value)))
                (:identity-with-one-argument
                 (unless (null identity-with-one-argument)
-                  (error "option :identity-with-one-argument given more than once"))
+                  (error 'option-identity-with-one-argument--given-more-than-once
+                         :options options))
                 (setf identity-with-one-argument (list value)))
                (:operator
                 (unless (null operator)
