@@ -24,7 +24,8 @@
                 (setf identity-with-one-argument (list value)))
                (:operator
                 (unless (null operator)
-                  (error "option :operator given more than once"))
+                  (error 'option-operator-given-more-than-once
+                         :options options))
                 (setf operator (list value)))))
     (let ((operator (if (null operator) name (car operator))))
       `(define-method-combination ,name
