@@ -11,4 +11,5 @@
    (:file "method-discriminator")
    (:file "long-form-expansion")
    (:file "short-form-expansion")
+   (:file "find-method-combination-defun")
    (:file "define-method-combination-defmacro")))
