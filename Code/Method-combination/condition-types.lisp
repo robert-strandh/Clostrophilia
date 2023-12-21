@@ -101,3 +101,14 @@
               but the following was found instead:~@
               ~s"
              (name condition)))))
+
+(define-condition invalid-method-group-specifier (error)
+  ((%group-specifier :initarg :group-specifier :reader group-specifier))
+  (:report
+   (lambda (condition stream)
+     (format stream
+             "The name of a method group specifier must be followed,~@
+              by a predicate or by at least one qualifier pattern,~@
+              but the name is followed by nothing in:~@
+              ~s"
+             (group-specifier condition)))))
