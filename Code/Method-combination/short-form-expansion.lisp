@@ -14,7 +14,8 @@
           do (ecase option
                (:documentation
                 (unless (null documentation)
-                  (error "option :documentation given more than once"))
+                  (error 'option-documentation-given-more-than-once
+                         :options options))
                 (setf documentation (list value)))
                (:identity-with-one-argument
                 (unless (null identity-with-one-argument)
