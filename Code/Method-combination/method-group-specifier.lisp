@@ -27,7 +27,8 @@
          (error 'method-group-specifier-must-be-proper-list
                 :group-specifier method-group-specifier))
         ((not (symbolp (first method-group-specifier)))
-         (error "name of method group specifier must be a symbol"))
+         (error 'name-of-method-group-specifier-must-be-symbol
+                :name (first method-group-specifier)))
         ((null (rest method-group-specifier))
          (error "method group specifier must have a predicate or qualifier pattern(s)"))
         (t
