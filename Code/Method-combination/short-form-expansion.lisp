@@ -1,7 +1,7 @@
 (cl:in-package #:clostrophilia)
 
 (defun short-form-expander (name options)
-  (unless (cleavir-code-utilities:proper-list-p options)
+  (unless (ecclesia:proper-list-p options)
     (error "options must be a proper list"))
   (unless (evenp (length options))
     (error "options must be a list with an even number of elements"))

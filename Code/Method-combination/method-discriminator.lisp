@@ -25,7 +25,7 @@
         collect (parse-method-group-specifier specifier qualifiers-var)))
 
 (defun wrap-body (method-list-var method-group-specifiers body)
-  (unless (cleavir-code-utilities:proper-list-p method-group-specifiers)
+  (unless (ecclesia:proper-list-p method-group-specifiers)
     (error "method group specifiers must be a proper list"))
   (let* ((qualifiers-var (gensym "qualifiers"))
          (parsed-method-group-specifiers

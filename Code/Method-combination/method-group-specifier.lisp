@@ -23,7 +23,7 @@
                collect (make-qualifier-test pattern qualifiers-var))))
 
 (defun parse-method-group-specifier (method-group-specifier qualifiers-var)
-  (cond ((not (cleavir-code-utilities:proper-list-p method-group-specifier))
+  (cond ((not (ecclesia:proper-list-p method-group-specifier))
          (error "method group specifier must be a proper list"))
         ((not (symbolp (first method-group-specifier)))
          (error "name of method group specifier must be a symbol"))

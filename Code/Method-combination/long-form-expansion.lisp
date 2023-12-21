@@ -11,9 +11,9 @@
 ;;; yet.
 (defun long-form-expander (name lambda-list method-group-specifiers body)
   (let ((lambda-list-variables
-          (cleavir-code-utilities:lambda-list-variables lambda-list)))
+          (ecclesia:lambda-list-variables lambda-list)))
     (multiple-value-bind (declarations documentation forms)
-        (cleavir-code-utilities:separate-function-body body)
+        (ecclesia:separate-function-body body)
       `(let ((template (find-method-combination-template ',name)))
          (when (null template)
            (setf template
