@@ -12,7 +12,7 @@
 
 (define-condition order-must-be-most-specific-first-or-last (error)
   ((%order :initarg :order :reader order))
-  (:report 
+  (:report
    (lambda (condition stream)
      (format stream
              "Order must be :MOST-SPECIFIC-FIRST or :MOST-SPECIFIC-LAST,~@
@@ -23,7 +23,7 @@
 (define-condition method-qualifier-does-not-match (error)
   ((%qualifier :initarg :qualifier :reader qualifier)
    (%group-specifiers :initarg :group-specifiers :reader group-specifiers))
-  (:report 
+  (:report
    (lambda (condition stream)
      (format stream
              "The method qualfier:~@
@@ -32,3 +32,23 @@
               ~s"
              (qualifier condition)
              (group-specifiers condition)))))
+
+(define-condition options-must-be-proper-list (error)
+  ((%options :initarg :options :reader options))
+  (:report
+   (lambda (condition stream)
+     (format stream
+             "Options must be a proper list, but the following~@
+              was found instead:~@
+              ~s"
+             (options condition)))))
+
+(define-condition options-must-have even-number-of-elements (error)
+  ((%options :initarg :options :reader options))
+  (:report
+   (lambda (condition stream)
+     (format stream
+             "Options must have an even number of elements,~@
+              but the following was found instead:~@
+              ~s"
+             (options condition)))))
