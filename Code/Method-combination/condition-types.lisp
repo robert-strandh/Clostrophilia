@@ -61,3 +61,14 @@
              "The :DOCUMENTATION option was given more than once in:~@
               ~s"
              (options condition)))))
+
+(define-condition option-identity-with-one-argument--given-more-than-once
+    (error)
+  ((%options :initarg :options :reader options))
+  (:report
+   (lambda (condition stream)
+     (format stream
+             "The :IDENTITY-WITH-ONE-ARGUMENT option was given~@
+              more than once in:~@
+              ~s"
+             (options condition)))))
