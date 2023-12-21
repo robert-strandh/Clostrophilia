@@ -7,4 +7,5 @@
   :components
   ((:file "accessor-defgenerics")
    (:file "method-group-specifier")
-   (:file "method-discriminator")))
+   (:file "method-discriminator")
+   (:file "long-form-expansion")))
