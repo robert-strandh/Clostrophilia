@@ -24,7 +24,8 @@
 
 (defun parse-method-group-specifier (method-group-specifier qualifiers-var)
   (cond ((not (ecclesia:proper-list-p method-group-specifier))
-         (error "method group specifier must be a proper list"))
+         (error 'method-group-specifier-must-be-proper-list
+                :group-specifier method-group-specifier))
         ((not (symbolp (first method-group-specifier)))
          (error "name of method group specifier must be a symbol"))
         ((null (rest method-group-specifier))
