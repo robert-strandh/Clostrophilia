@@ -43,7 +43,7 @@
               ~s"
              (options condition)))))
 
-(define-condition options-must-have even-number-of-elements (error)
+(define-condition options-must-have-an-even-number-of-elements (error)
   ((%options :initarg :options :reader options))
   (:report
    (lambda (condition stream)
