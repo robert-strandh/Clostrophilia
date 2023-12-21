@@ -91,3 +91,13 @@
               but the following was found instead:~@
               ~s"
              (group-specifier condition)))))
+
+(define-condition name-of-method-group-specifier-must-be-symbol (error)
+  ((%name :initarg :name :reader name))
+  (:report
+   (lambda (condition stream)
+     (format stream
+             "The name of a method group specifier must be a symbol,~@
+              but the following was found instead:~@
+              ~s"
+             (name condition)))))
