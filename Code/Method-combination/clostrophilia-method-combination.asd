@@ -8,4 +8,5 @@
   ((:file "accessor-defgenerics")
    (:file "method-group-specifier")
    (:file "method-discriminator")
-   (:file "long-form-expansion")))
+   (:file "long-form-expansion")
+   (:file "short-form-expansion")))
