@@ -5,4 +5,5 @@
                "ecclesia")
   :serial t
   :components
-  ((:file "accessor-defgenerics")))
+  ((:file "accessor-defgenerics")
+   (:file "method-group-specifier")))
