@@ -8,7 +8,8 @@
       `(,test
         (let ((order ,(if (null order-form) :most-specific-first order-form)))
           (unless (member order '(:most-specific-first :most-specific-last))
-            (error "invalid order"))
+            (error 'order-must-be-most-specific-first-or-last
+                   :order order))
           (if (eq order :most-specific-first)
               (setf ,name (append ,name (list ,method-var)))
               (push ,method-var ,name)))))))
