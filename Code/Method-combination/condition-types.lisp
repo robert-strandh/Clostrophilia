@@ -19,3 +19,16 @@
               but the following was found instead:~@
               ~s"
              (order condition)))))
+
+(define-condition method-qualifier-does-not-match (error)
+  ((%qualifier :initarg :qualifier :reader qualifier)
+   (%group-specifiers :initarg :group-specifiers :reader group-specifiers))
+  (:report 
+   (lambda (condition stream)
+     (format stream
+             "The method qualfier:~@
+              ~s~@
+              do not match any of the method group specifiers:~@
+              ~s"
+             (qualifier condition)
+             (group-specifiers condition)))))
