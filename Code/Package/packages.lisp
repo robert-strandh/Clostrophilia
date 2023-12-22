@@ -3,7 +3,7 @@
 (defpackage #:clostrophilia
   (:use #:common-lisp)
   (:export
-   ;; MOP classes
+   ;; MOP classes.
    #:class #:standard-class #:built-in-class #:structure-class
    #:forward-referenced-class
    #:funcallable-standard-class
@@ -32,4 +32,15 @@
    #:class-slots
    #:class-default-initargs
    #:class-finalized-p
-   #:class-prototype))
+   #:class-prototype
+   ;; Condition types.
+   #:unknown-method-combination
+   #:order-must-be-most-specific-first-or-last
+   #:method-qualifier-does-not-match
+   #:options-must-be-proper-list
+   #:options-must-have-an-even-number-of-elements
+   #:option-documentation-given-more-than-once
+   #:option-identity-with-one-argument-given-more-than-once
+   #:option-operator-given-more-than-once
+   #:method-group-specifier-must-be-proper-list
+   #:name-of-method-group-specifier-must-be-symbol))
