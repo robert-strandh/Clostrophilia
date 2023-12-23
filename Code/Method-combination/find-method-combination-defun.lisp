@@ -8,7 +8,7 @@
     (let* ((variant-determiner (variant-signature-determiner template))
            (variant-signature (apply variant-determiner options)))
       (loop for variant in (variants template)
-            do (when (equal (sicl-clos:variant-signature variant)
+            do (when (equal (variant-signature variant)
                             variant-signature)
                  (return-from find-method-combination variant)))
       (let ((new-variant (make-instance 'method-combination
