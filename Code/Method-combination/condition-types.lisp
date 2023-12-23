@@ -10,6 +10,8 @@
               But there is no method condition by that name."
              (name condition)))))
 
+(defgeneric order (condition))
+
 (define-condition order-must-be-most-specific-first-or-last (error)
   ((%order :initarg :order :reader order))
   (:report
@@ -19,6 +21,10 @@
               but the following was found instead:~@
               ~s"
              (order condition)))))
+
+(defgeneric qualifier (condition))
+
+(defgeneric group-specifiers (condition))
 
 (define-condition method-qualifier-does-not-match (error)
   ((%qualifier :initarg :qualifier :reader qualifier)
@@ -32,6 +38,8 @@
               ~s"
              (qualifier condition)
              (group-specifiers condition)))))
+
+(defgeneric options (condition))
 
 (define-condition options-must-be-proper-list (error)
   ((%options :initarg :options :reader options))
@@ -81,6 +89,8 @@
              "The :OPERATOR option was given more than once in:~@
               ~s"
              (options condition)))))
+
+(defgeneric group-specifier (condition))
 
 (define-condition method-group-specifier-must-be-proper-list (error)
   ((%group-specifier :initarg :group-specifier :reader group-specifier))
