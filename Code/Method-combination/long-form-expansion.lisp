@@ -11,7 +11,7 @@
 ;;; yet.
 (defun long-form-expander (name lambda-list method-group-specifiers body)
   (let ((lambda-list-variables
-          (ecclesia:lambda-list-variables lambda-list)))
+          (ecclesia:extract-lambda-list-variables lambda-list)))
     (multiple-value-bind (declarations documentation forms)
         (ecclesia:separate-function-body body)
       `(let ((template (find-method-combination-template ',name)))
