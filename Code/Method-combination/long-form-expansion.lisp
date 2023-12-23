@@ -9,12 +9,15 @@
 
 ;;; We do not support the :ARGUMENTS and :GENERIC-FUNCTION options
 ;;; yet.
+;;;
+;;; FIXME: We need a way to pass a CLIENT argument to
+;;; FIND-METHOD-COMBINATION-TEMPLATE.  Right now, we are passing NIL.
 (defun long-form-expander (name lambda-list method-group-specifiers body)
   (let ((lambda-list-variables
           (ecclesia:extract-lambda-list-variables lambda-list)))
     (multiple-value-bind (declarations documentation forms)
         (ecclesia:separate-function-body body)
-      `(let ((template (find-method-combination-template ',name)))
+      `(let ((template (find-method-combination-template nil ',name)))
          (when (null template)
            (setf template
                  (make-instance 'method-combination-template
@@ -29,6 +32,6 @@
                      method-group-specifiers
                      declarations
                      forms)))
-           (setf (find-method-combination-template ',name)
+           (setf (find-method-combination-template nil ',name)
                  template))
          ',name))))
