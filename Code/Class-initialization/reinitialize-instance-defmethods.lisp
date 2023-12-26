@@ -1,5 +1,10 @@
 (cl:in-package #:clostrophilia)
 
+;;; The MOP specification says that the :DIRECT-DEFAULT-INITARGS
+;;; keyword argument, if given, must be a proper list of canonicalized
+;;; default initialization arguments.  If it is not given during
+;;; reinitialization, then it is not defaulted.
+;;;
 ;;; The MOP specification says that if :DIRECT-SUPERCLASSES keyword
 ;;; argument is given when the class is reinitialized, then we must
 ;;; call REMOVE-DIRECT-SUBCLASS for every class in the difference
@@ -9,8 +14,11 @@
 
 (defmethod reinitialize-instance :before
     ((class class)
-     &key (direct-superclasses '() direct-superclasses-supplied-p)
+     &key
+       (direct-default-initargs '())
+       (direct-superclasses '() direct-superclasses-supplied-p)
      &allow-other-keys)
+  (check-direct-default-initargs direct-default-initargs)
   (check-superclass-list class direct-superclasses)
   (when direct-superclasses-supplied-p
     (let* ((old (class-direct-superclasses class))
