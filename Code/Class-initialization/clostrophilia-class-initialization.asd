@@ -10,6 +10,7 @@
    (:file "add-direct-subclass-defmethod")
    (:file "validate-superclass-defgeneric")
    (:file "validate-superclass-defmethods")
+   (:file "check-direct-default-initargs-defun")
    (:file "check-superclass-list-defun")
    (:file "initialize-instance-defmethods")
    (:file "reinitialize-instance-defmethods")))
