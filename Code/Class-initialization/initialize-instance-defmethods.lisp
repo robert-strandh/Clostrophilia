@@ -1,6 +1,6 @@
 (cl:in-package #:clostrophilia)
 
-;;; The MOP specification also says that the :DIRECT-DEFAULT-INITARGS
+;;; The MOP specification says that the :DIRECT-DEFAULT-INITARGS
 ;;; keyword argument must be a proper list of canonicalized default
 ;;; initialization arguments, and that when a class is initialized, it
 ;;; defaults to the empty list.
