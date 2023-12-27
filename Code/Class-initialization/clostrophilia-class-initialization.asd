@@ -11,6 +11,7 @@
    (:file "validate-superclass-defgeneric")
    (:file "validate-superclass-defmethods")
    (:file "check-direct-default-initargs-defun")
+   (:file "check-and-convert-direct-slot-specifications")
    (:file "check-superclass-list-defun")
    (:file "initialize-instance-defmethods")
    (:file "reinitialize-instance-defmethods")))
