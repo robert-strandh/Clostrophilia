@@ -14,4 +14,5 @@
    (:file "check-and-convert-direct-slot-specifications")
    (:file "check-superclass-list-defun")
    (:file "initialize-instance-defmethods")
-   (:file "reinitialize-instance-defmethods")))
+   (:file "reinitialize-instance-defmethods")
+   (:file "condition-types")))
