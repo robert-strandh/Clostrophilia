@@ -15,6 +15,7 @@
     ((class class)
      &rest initargs
      &key
+       (name nil)
        (direct-default-initargs '())
        (direct-slots '())
        (direct-superclasses '())
@@ -44,8 +45,12 @@
            ;; empty list in that case.
            :direct-slots direct-slot-definitions
            ;; We supply the DOCUMENTATION argument explicitly, in case
-           ;; it was not given.  That way it becomes defaulted to the
-           ;; empty list in that case.
+           ;; it was not given.  That way it becomes defaulted to NIL
+           ;; in that case.
            :documentation documentation
+           ;; We supply the NAME argument explicitly, in case it was
+           ;; not given.  That way it becomes defaulted to NIL in that
+           ;; case.
+           :name name
            :direct-superclasses defaulted-direct-superclasses
            initargs)))
