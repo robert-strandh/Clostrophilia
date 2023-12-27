@@ -11,5 +11,5 @@
                     :expected-type 'class))
            (unless (validate-superclass class superclass)
              (error 'class-can-not-be-superclass
-                    :class class
+                    :subclass class
                     :superclass superclass))))
