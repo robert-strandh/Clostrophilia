@@ -107,6 +107,8 @@
                       ~s"
                      (initargs condition)))))
 
+(defgeneric initarg (condition))
+
 (define-condition direct-default-initarg-must-be-a-proper-list
     (error)
   ((%initarg :initarg :initarg :reader initarg))
@@ -117,8 +119,6 @@
                       ~s"
                      (initarg condition)))))
 
-(defgeneric initarg (condition))
-
 (define-condition direct-default-initarg-must-be-a-list-of-three-elements
     (error)
   ((%initarg :initarg :initarg :reader initarg))
@@ -128,8 +128,6 @@
                       three elements, but the following was found:~@
                       ~s"
                      (initarg condition)))))
-
-(defgeneric initarg (condition))
 
 (defgeneric name (condition))
 
