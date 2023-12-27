@@ -1,5 +1,9 @@
 (cl:in-package #:clostrophilia)
 
+(defgeneric subclass (condition))
+
+(defgeneric superclass (condition))
+
 (define-condition attempt-to-add-existing-subclass
     (error)
   ((%subclass :initarg :subclass :reader subclass)
@@ -9,6 +13,10 @@
                      "Attempt to add existing subclass ~s as a subclass of ~s."
                      (subclass condition)
                      (superclass condition)))))
+
+(defgeneric slot-definition (condition))
+
+(defgeneric readers (condition))
 
 (define-condition readers-must-be-proper-list
     (type-error)
@@ -23,6 +31,8 @@
                      (readers condition))))
   (:default-initargs :type 'list))
 
+(defgeneric documentation-option (condition))
+
 (define-condition malformed-documentation-option
     (program-error)
   ((%documentation-option
@@ -34,6 +44,8 @@
                       ~s was found."
                      (documentation-option condition)))))
 
+(defgeneric direct-slots (condition))
+
 (define-condition direct-slots-must-be-proper-list
     (error)
   ((%direct-slots :initarg :direct-slots :reader direct-slots))
@@ -43,6 +55,8 @@
                       but the following was found instead:~@
                       ~s"
                      (direct-slots condition)))))
+
+(defgeneric direct-slot-specification (condition))
 
 (define-condition direct-slot-specification-must-be-proper-list
     (error)
@@ -81,6 +95,8 @@
                       ~s"
                      (direct-slot-specification condition)))))
 
+(defgeneric initargs (condition))
+
 (define-condition direct-default-initargs-must-be-a-proper-list
     (error)
   ((%initargs :initarg :initargs :reader initargs))
@@ -100,6 +116,8 @@
                       list, but the following was found:~@
                       ~s"
                      (initarg condition)))))
+
+(defgeneric initarg (condition))
 
 (define-condition direct-default-initarg-must-be-a-list-of-three-elements
     (error)
@@ -122,6 +140,8 @@
                       ~s"
                      (name condition)))))
 
+(defgeneric initfunction (condition))
+
 (define-condition third-element-of-direct-default-initarg-must-be-a-thunk
     (error)
   ((%initarg :initarg :initarg :reader initarg)
@@ -132,6 +152,10 @@
                       must be a thunk, but the following was found instead~@
                       ~s"
                      (initfunction condition)))))
+
+(defgeneric subclass (condition))
+
+(defgeneric superclass (condition))
 
 (define-condition class-can-not-be-superclass (error)
   ((%subclass :initarg :subclass :reader subclass)
