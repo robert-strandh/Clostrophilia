@@ -37,3 +37,4 @@
   (unless (ecclesia:proper-list-p direct-default-initargs)
     (error 'direct-default-initargs-must-be-a-proper-list
            :initargs direct-default-initargs))
+  (mapc #'check-direct-default-initarg direct-default-initargs))
