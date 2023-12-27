@@ -28,3 +28,17 @@
             do (remove-direct-subclass direct-superclass class))
       (loop for direct-superclass in new
             do (add-direct-subclass direct-superclass class)))))
+
+(defmethod reinitialize-instance :around
+    ((class class)
+     &rest initargs
+     &key
+       (direct-slots '() direct-slots-p)
+     &allow-other-keys)
+  (let ((direct-slot-definitions
+          (check-and-convert-direct-slot-specifications class direct-slots)))
+    (if direct-slots-p
+        (apply #'call-next-method class
+               :direct-slots direct-slot-definitions
+               initargs)
+        (call-next-method))))
