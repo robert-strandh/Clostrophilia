@@ -28,7 +28,7 @@
          (method-function
            (lambda (arguments next-methods)
              (declare (ignore next-methods))
-             (slot-value (car arguments) ',slot-name)))
+             (slot-value (car arguments) slot-name)))
          (method-class (reader-method-class
                         class slot-definition
                         :lambda-list lambda-list
@@ -63,7 +63,7 @@
          (method-function
            (lambda (arguments next-methods)
              (declare (ignore next-methods))
-             (setf (slot-value (cadr arguments) ',slot-name)
+             (setf (slot-value (cadr arguments) slot-name)
                    (car arguments))))
          (method-class (writer-method-class
                         class slot-definition
