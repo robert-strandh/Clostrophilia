@@ -26,9 +26,9 @@
          (specializers (list class))
          (slot-name (slot-definition-name slot-definition))
          (method-function
-           (compile nil `(lambda (arguments next-methods)
-                           (declare (ignore next-methods))
-                           (slot-value (car arguments) ',slot-name))))
+           (lambda (arguments next-methods)
+             (declare (ignore next-methods))
+             (slot-value (car arguments) ',slot-name)))
          (method-class (reader-method-class
                         class slot-definition
                         :lambda-list lambda-list
@@ -61,10 +61,10 @@
          (specializers (list (find-class 't) class))
          (slot-name (slot-definition-name slot-definition))
          (method-function
-           (compile nil `(lambda (arguments next-methods)
-                           (declare (ignore next-methods))
-                           (setf (slot-value (cadr arguments) ',slot-name)
-                                 (car arguments)))))
+           (lambda (arguments next-methods)
+             (declare (ignore next-methods))
+             (setf (slot-value (cadr arguments) ',slot-name)
+                   (car arguments))))
          (method-class (writer-method-class
                         class slot-definition
                         :lambda-list lambda-list
