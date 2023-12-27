@@ -129,6 +129,10 @@
                       ~s"
                      (initarg condition)))))
 
+(defgeneric initarg (condition))
+
+(defgeneric name (condition))
+
 (define-condition name-of-direct-default-initarg-must-be-a-symbol
     (error)
   ((%initarg :initarg :initarg :reader initarg)
