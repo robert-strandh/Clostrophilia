@@ -18,6 +18,7 @@
        (direct-default-initargs '())
        (direct-slots '())
        (direct-superclasses '())
+       (documentation nil)
      &allow-other-keys)
   (check-direct-default-initargs direct-default-initargs)
   (check-superclass-list class direct-superclasses)
@@ -27,6 +28,7 @@
               direct-superclasses))
         (direct-slot-definitions
           (check-and-convert-direct-slot-specifications class direct-slots)))
+    (check-documentation documentation)
     (loop for defaulted-direct-superclass in defaulted-direct-superclasses
           do (add-direct-subclass defaulted-direct-superclass class))
     (loop for direct-slot-definition in direct-slot-definitions
@@ -41,5 +43,9 @@
            ;; it was not given.  That way it becomes defaulted to the
            ;; empty list in that case.
            :direct-slots direct-slot-definitions
+           ;; We supply the DOCUMENTATION argument explicitly, in case
+           ;; it was not given.  That way it becomes defaulted to the
+           ;; empty list in that case.
+           :documentation documentation
            :direct-superclasses defaulted-direct-superclasses
            initargs)))

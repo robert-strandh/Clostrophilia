@@ -20,9 +20,11 @@
      &key
        (direct-default-initargs '())
        (direct-superclasses '() direct-superclasses-supplied-p)
+       (documentation nil)
      &allow-other-keys)
   (check-direct-default-initargs direct-default-initargs)
   (check-superclass-list class direct-superclasses)
+  (check-documentation documentation)
   (when direct-superclasses-supplied-p
     (let* ((old (class-direct-superclasses class))
            (obsolete (set-difference old direct-superclasses))
