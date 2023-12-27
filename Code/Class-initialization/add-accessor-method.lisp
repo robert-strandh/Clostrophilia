@@ -79,3 +79,10 @@
                                 :function method-function
                                 :slot-definition slot-definition)))
     (add-method generic-function method)))
+
+(defun create-readers-and-writers (class direct-slot-definitions)
+  (loop for definition in direct-slot-definitions
+        do (loop for reader in (slot-definition-readers definition)
+                 do (add-reader-method class reader definition))
+           (loop for writer in (slot-definition-writers definition)
+                 do (add-writer-method class writer definition))))
