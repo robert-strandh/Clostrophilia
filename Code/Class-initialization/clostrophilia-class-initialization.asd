@@ -13,6 +13,7 @@
    (:file "check-direct-default-initargs-defun")
    (:file "check-and-convert-direct-slot-specifications")
    (:file "check-superclass-list-defun")
+   (:file "add-accessor-method")
    (:file "initialize-instance-defmethods")
    (:file "reinitialize-instance-defmethods")
    (:file "condition-types")))
