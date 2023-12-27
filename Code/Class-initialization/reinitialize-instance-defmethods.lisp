@@ -12,6 +12,9 @@
 ;;; then call ADD-DIRECT-SUBCLASS for every class in the difference
 ;;; between the new value and the existing direct superclasses.
 
+;;; We define a :BEFORE method for arguments that only need to have
+;;; their contents checked, but that should be passed unchanged to the
+;;; primary method, or not passed if not given.
 (defmethod reinitialize-instance :before
     ((class class)
      &key
@@ -29,6 +32,13 @@
       (loop for direct-superclass in new
             do (add-direct-subclass direct-superclass class)))))
 
+;;; We define an :AROUND method for arguments that need to be
+;;; transformed or defaulted before passed to the primary method.
+;;;
+;;; In case of :DIRECT-SLOTS, if it is given, it needs to be turned
+;;; into a list of direct slot defininitions before being passed to
+;;; the primary method.  If it is not given, it should not be passed
+;;; at all to the primary method.
 (defmethod reinitialize-instance :around
     ((class class)
      &rest initargs
