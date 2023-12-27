@@ -12,7 +12,8 @@
 ;;; function DEFAULT-SUPERCLASSES with CLASS as its argument.
 
 (defmethod initialize-instance :around
-    ((class class) &rest initargs
+    ((class class)
+     &rest initargs
      &key
        (direct-default-initargs '())
        (direct-slots '())
