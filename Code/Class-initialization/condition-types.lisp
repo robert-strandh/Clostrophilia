@@ -144,3 +144,15 @@
                       ~s"
                      (superclass condition)
                      (subclass condition)))))
+
+(define-condition class-documentation-option-must-be-string-or-nil
+    (error)
+  ((%documentation-option
+    :initarg :documentation-option
+    :reader documentation-option))
+  (:report (lambda (condition stream)
+             (format stream
+                     "A class :DOCUMENTATION option must be a string~@
+                      or NIL, but the following was found instead:~@
+                      ~s"
+                     (documentation-option condition)))))
