@@ -29,6 +29,8 @@
           (check-and-convert-direct-slot-specifications class direct-slots)))
     (loop for defaulted-direct-superclass in defaulted-direct-superclasses
           do (add-direct-subclass defaulted-direct-superclass class))
+    (loop for direct-slot-definition in direct-slot-definitions
+          do (create-readers-and-writers class direct-slot-definition))
     (apply #'call-next-method
            class
            ;; We supply the DIRECT-DEFAULT-INITARGS argument

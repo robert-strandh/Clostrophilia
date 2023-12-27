@@ -47,6 +47,8 @@
      &allow-other-keys)
   (let ((direct-slot-definitions
           (check-and-convert-direct-slot-specifications class direct-slots)))
+    (loop for direct-slot-definition in direct-slot-definitions
+          do (create-readers-and-writers class direct-slot-definition))
     (if direct-slots-p
         (apply #'call-next-method class
                :direct-slots direct-slot-definitions
