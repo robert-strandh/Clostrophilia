@@ -15,6 +15,7 @@
     ((class class) &rest initargs
      &key
        (direct-default-initargs '())
+       (direct-slots '())
        (direct-superclasses '())
      &allow-other-keys)
   (check-direct-default-initargs direct-default-initargs)
@@ -22,7 +23,9 @@
   (let ((defaulted-direct-superclasses
           (if (null direct-superclasses)
               (default-superclasses class)
-              direct-superclasses)))
+              direct-superclasses))
+        (direct-slot-definitions
+          (check-and-convert-direct-slot-specifications class direct-slots)))
     (loop for defaulted-direct-superclass in defaulted-direct-superclasses
           do (add-direct-subclass defaulted-direct-superclass class))
     (apply #'call-next-method
@@ -31,5 +34,9 @@
            ;; explicitly, in case it was not given.  That way it
            ;; becomes defaulted to the empty list in that case.
            :direct-default-initargs direct-default-initargs
+           ;; We supply the DIRECT-SLOTS argument explicitly, in case
+           ;; it was not given.  That way it becomes defaulted to the
+           ;; empty list in that case.
+           :direct-slots direct-slot-definitions
            :direct-superclasses defaulted-direct-superclasses
            initargs)))
