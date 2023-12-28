@@ -62,3 +62,29 @@
                       ~s"
                      (argument-precedence-order condition)))))
 
+(defgeneric declarations (condition))
+
+(define-condition generic-function-declarations-must-be-proper-list
+    (program-error)
+  ((%declarations :initarg :declarations :reader declarations))
+  (:report (lambda (condition stream)
+             (format stream
+                     "The list of declarations of a generic function~@
+                      must be a proper list, but the following was~@
+                      found instead:~@
+                      ~s"
+                     (declarations condition)))))
+
+(defgeneric documentation (condition))
+
+(define-condition generic-function-documentation-must-be-nil-or-string
+    (program-error)
+  ((%documentation-option
+    :initarg :documentation
+    :reader documentation-option))
+  (:report (lambda (condition stream)
+             (format stream
+                     "The documentation for a generic function must be nil~@
+                      or a string.  But the following was found instead:~@
+                      ~s"
+                     (documentation-option condition)))))
