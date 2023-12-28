@@ -3,4 +3,4 @@
 (defsystem "clostrophilia-generic-function-initialization"
   :serial t
   :components
-  ())
+  ((:file "condition-types")))
