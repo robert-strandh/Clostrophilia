@@ -3,6 +3,7 @@
 (defsystem "clostrophilia-generic-function-initialization"
   :serial t
   :components
-  ((:file "initialize-instance-methods")
+  ((:file "check-declarations")
+   (:file "initialize-instance-methods")
    (:file "shared-initialize-methods")
    (:file "condition-types")))
