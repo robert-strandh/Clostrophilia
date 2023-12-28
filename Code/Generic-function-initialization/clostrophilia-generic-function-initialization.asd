@@ -4,4 +4,5 @@
   :serial t
   :components
   ((:file "initialize-instance-methods")
+   (:file "shared-initialize-methods")
    (:file "condition-types")))
