@@ -88,3 +88,14 @@
                       or a string.  But the following was found instead:~@
                       ~s"
                      (documentation-option condition)))))
+
+(define-condition generic-function-declaration-must-be-valid
+    (program-error)
+  ((%declaration :initarg :declaration :reader declaration))
+  (:report (lambda (condition stream)
+             (format stream
+                     "A generic function declaration must be a valid~@
+                      OPTIMIZE declaration.  But the following was~@
+                      found instead:~@
+                      ~s"
+                     (declaration condition)))))
