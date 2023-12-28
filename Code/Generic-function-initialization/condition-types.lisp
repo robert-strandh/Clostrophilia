@@ -15,3 +15,50 @@
                       was given:~@
                       ~s"
                      (argument-precedence-order condition)))))
+
+(define-condition argument-precedence-order-must-be-proper-list
+    (program-error)
+  ((%argument-precedence-order
+    :initarg :argument-precedence-order
+    :reader argument-precedence-order))
+  (:report (lambda (condition stream)
+             (format stream
+                     "The keyword argument :ARGUMENT-PRECEDENCE-ORDER~@
+                      must be a proper list, but the following was~@
+                      given instead:~@
+                      ~s"
+                     (argument-precedence-order condition)))))
+
+(defgeneric required (condition))
+
+(define-condition argument-precedence-order-must-be-permutation
+    (program-error)
+  ((%argument-precedence-order
+    :initarg :argument-precedence-order
+    :reader argument-precedence-order)
+   (%required :initarg :required :reader required))
+  (:report (lambda (condition stream)
+             (format stream
+                     "The keyword argument :ARGUMENT-PRECEDENCE-ORDER~@
+                      must be a permutation of the required parameters~@
+                      in the lambda list, but the required parameters~@
+                      of the lambda list given are:~@
+                      ~s~@
+                      whereas the given argument precedence order is:~@
+                      ~s"
+                     (required condition)
+                     (argument-precedence-order condition)))))
+
+(define-condition argument-precedence-order-must-contain symbols
+    (program-error)
+  ((%argument-precedence-order
+    :initarg :argument-precedence-order
+    :reader argument-precedence-order))
+  (:report (lambda (condition stream)
+             (format stream
+                     "The keyword argument :ARGUMENT-PRECEDENCE-ORDER~@
+                      must be a list where every element is a symbol~@
+                      but the following was given instead:~@
+                      ~s"
+                     (argument-precedence-order condition)))))
+
