@@ -114,3 +114,18 @@
                       given instead:~@
                       ~s"
                      (method-combination condition)))))
+
+(defgeneric method-class (condition))
+
+(define-condition method-class-option-must-be-method-class
+    (program-error)
+  ((%method-class
+    :initarg :method-class
+    :reader method-class))
+  (:report (lambda (condition stream)
+             (format stream
+                     "The :METHOD-CLASS argument must be a subclass of~@
+                      of the class METHOD, but the following was~@
+                      given instead:~@
+                      ~s"
+                     (method-class condition)))))
