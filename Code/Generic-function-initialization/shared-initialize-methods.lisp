@@ -54,3 +54,12 @@
             (apply #'call-next-method
                    :argument-precedence-order required
                    initargs)))))
+
+(defmethod shared-initialize :before
+    ((generic-function generic-function)
+     &key
+       method-combination
+     &allow-other-keys)
+  (unless (typep method-combination 'method-combination)
+    (error method-combination-option-must-be-method-combination
+           :method-combination method-combination)))
