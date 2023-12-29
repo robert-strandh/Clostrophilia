@@ -99,3 +99,18 @@
                       found instead:~@
                       ~s"
                      (declaration condition)))))
+
+(defgeneric method-combination (condition))
+
+(define-condition method-combination-option-must-be-method-combination
+    (program-error)
+  ((%method-combination
+    :initarg :method-combination
+    :reader method-combination))
+  (:report (lambda (condition stream)
+             (format stream
+                     "The :METHOD-COMBINATION argument must be a~@
+                      method-combination metaobject, but the following was~@
+                      given instead:~@
+                      ~s"
+                     (method-combination condition)))))
