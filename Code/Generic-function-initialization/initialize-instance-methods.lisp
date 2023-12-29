@@ -6,6 +6,15 @@
      &key
        (declarations '())
        (documentation nil)
+       (method-class nil (find-class 'standard-method))
      &allow-other-keys)
   (check-generic-function-declarations declarations)
-  (check-documentation documentation))
+  (check-documentation documentation)
+  (unless (typep method-class 'method)
+    (error 'method-class-option-must-be-method-class
+           :method-class method-class))
+  (apply #'call-next-method
+         declarations
+         documentation
+         method-class))
+
