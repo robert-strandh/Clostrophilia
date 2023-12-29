@@ -4,6 +4,7 @@
     ((generic-function generic-function)
      &rest initargs
      &key
+       (name nil)
        (declarations '())
        (documentation nil)
        (method-class nil (find-class 'standard-method))
@@ -14,7 +15,9 @@
     (error 'method-class-option-must-be-method-class
            :method-class method-class))
   (apply #'call-next-method
+         name
          declarations
          documentation
-         method-class))
+         method-class
+         initargs))
 
