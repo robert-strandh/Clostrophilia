@@ -83,6 +83,7 @@
    (:file "check-direct-default-initargs-defun")
    (:file "check-superclass-list-defun")
    (:file "add-accessor-method")
+   (:file "special-variables")
    (:file "initialize-instance-defmethods")
    (:file "reinitialize-instance-defmethods")
    (:file "shared-initialize-methods")
