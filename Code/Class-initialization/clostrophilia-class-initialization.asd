@@ -13,8 +13,8 @@
 ;;;;   1. It should be supplied neither at initialization nor at
 ;;;;      reinitialization.  This case does not result in any code.
 ;;;;
-;;;;   2. It should be defaulted at initialization an not supplied
-;;;;      during reinitialization.  To handle this case, we supply the
+;;;;   2. It should be defaulted at initialization and not during
+;;;;      reinitialization.  To handle this case, we supply the
 ;;;;      default value as the initialization argument in an :AROUND
 ;;;;      method on INITIALIZE-INSTANCE.  We always supply the value
 ;;;;      of the argument explicitly to CALL-NEXT-METHOD.
@@ -60,7 +60,7 @@
 ;;;;
 ;;;;   :DIRECT-DEFAULT-INITARGS is in category 2.b.I
 ;;;;
-;;;;   :DIRECT-SLOTS is in category 2.c.III
+;;;;   :DIRECT-SLOTS is in category 2.b.III
 ;;;; 
 ;;;;   :DIRECT-SUPERCLASSES is in category 2.b.II
 ;;;; 
@@ -84,7 +84,6 @@
    (:file "check-and-convert-direct-slot-specifications")
    (:file "check-superclass-list-defun")
    (:file "add-accessor-method")
-   (:file "check-documentation")
    (:file "initialize-instance-defmethods")
    (:file "reinitialize-instance-defmethods")
    (:file "condition-types")))
