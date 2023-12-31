@@ -30,3 +30,30 @@
   (:report (lambda (condition stream)
              (format stream
                      "The LAMBDA-LIST keyword argument must be supplied"))))
+
+(defgeneric specializers (condition))
+
+(define-condition specializers-must-be-proper-list
+    (error)
+  ((%specializers :initarg :specializers :reader specializers))
+  (:report (lambda (condition stream)
+             (format stream
+                     "The list of specializers must be a proper list,~@
+                      but the following was found instead:~@
+                      ~s"
+                     (specializers condition)))))
+
+(define-condition incorrect-number-of-specializers (program-error)
+  ((%specializers :initarg :specializers :reader specializers)
+   (%lambda-list :initarg :lambda-list :reader lambda-list))
+  (:report (lambda (condition stream)
+             (format stream
+                     "The list of specializers must have as many elements~@
+                      as the number of required parameters in the~@
+                      lambda list, but the following list of specializers~@
+                      was given:~@
+                      ~s
+                      and the following lambda list was given:~@
+                      ~s"
+                     (specializers condition)
+                     (lambda-list condition)))))
