@@ -9,14 +9,21 @@
           do (error 'qualifier-must-be-non-nil-atom
                     :qualifier qualifier)))
 
+(defun check-unspecialized-lambda-list (lambda-list)
+  (ecclesia:canonicalize-ordinary-lambda-list lambda-list))
+
 (defmethod initialize-instance :before
     ((method method)
      &key
+       (qualifiers '())
        (lambda-list nil lambda-list-p)
        (specializers nil specializers-p)
        (function nil function-p)
      &allow-other-keys)
-  (check-method-qualifiers qualifiers))
+  (check-method-qualifiers qualifiers)
+  (check-unspecialized-lambda-list lambda-list)
+  (unless lambda-list-p
+    (error 'lambda-list-must-be-supplied)))
 
 
 (defmethod initialize-instance :around
