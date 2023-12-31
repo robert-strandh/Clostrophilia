@@ -3,4 +3,5 @@
 (defsystem "clostrophilica-method-initialization"
   :serial t
   :components
-  ((:file "condition-types")))
+  ((:file "condition-types")
+   (:file "initialize-instance-methods")))
