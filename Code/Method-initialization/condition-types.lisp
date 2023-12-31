@@ -23,3 +23,10 @@
                       but the following was found instead:~@
                       ~s"
                      (qualifiers condition)))))
+
+(define-condition lambda-list-must-be-supplied
+    (error)
+  ()
+  (:report (lambda (condition stream)
+             (format stream
+                     "The LAMBDA-LIST keyword argument must be supplied"))))
