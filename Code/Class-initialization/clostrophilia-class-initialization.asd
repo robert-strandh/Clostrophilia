@@ -68,8 +68,6 @@
 ;;;; 
 ;;;;   :NAME is in category 2.a.I
 
-
-
 (defsystem "clostrophilia-class-initialization"
   :depends-on ("ecclesia")
   :serial t
