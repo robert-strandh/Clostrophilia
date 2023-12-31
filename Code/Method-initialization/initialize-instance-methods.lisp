@@ -12,6 +12,11 @@
 (defun check-unspecialized-lambda-list (lambda-list)
   (ecclesia:canonicalize-ordinary-lambda-list lambda-list))
 
+(defun check-specializers (specializers lambda-list)
+  (unless (ecclesia:proper-list-p specializers)
+    (error 'specializers-must-be-proper-list
+           :specializers specializers)))
+
 (defmethod initialize-instance :before
     ((method method)
      &key
