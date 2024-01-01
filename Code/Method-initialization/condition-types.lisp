@@ -79,6 +79,17 @@
              (format stream
                      "The SLOT-DEFINITION keyword argument must be supplied"))))
 
+(define-condition slot-definition-must-be-direct-slot-definition
+    (program-error)
+  ((%slot-definition :initarg slot-definition :reader slot-definition))
+  (:report (lambda (condition stream)
+             (format stream
+                     "The SLOT-DEFINITION keyword argument must be an~@
+                      instance of a subcalss of DIRECT-SLOT-DEFINITION,~@
+                      but the following was given instead:~@
+                      ~s"
+                     (slot-definition condition)))))
+
 (define-condition method-documentation-option-must-be-string-or-nil
     (error)
   ((%documentation-option
