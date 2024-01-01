@@ -76,6 +76,7 @@
    (:file "remove-direct-subclass-defmethod")
    (:file "add-direct-subclass-defgeneric")
    (:file "add-direct-subclass-defmethod")
+   (:file "default-superclasses")
    (:file "validate-superclass-defgeneric")
    (:file "validate-superclass-defmethods")
    (:file "check-direct-default-initargs-defun")
