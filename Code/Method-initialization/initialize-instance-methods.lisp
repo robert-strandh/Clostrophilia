@@ -15,7 +15,12 @@
 (defun check-specializers (specializers lambda-list)
   (unless (ecclesia:proper-list-p specializers)
     (error 'specializers-must-be-proper-list
-           :specializers specializers)))
+           :specializers specializers))
+  (let ((required (ecclesia:extract-required lambda-list)))
+    (unless (= (length specializers) (length required))
+      (error 'incorrect-number-of-specializers
+             :specializers specializers
+             :lambda-list lambda-list))))
 
 (defmethod initialize-instance :before
     ((method method)
@@ -28,8 +33,10 @@
   (check-method-qualifiers qualifiers)
   (check-unspecialized-lambda-list lambda-list)
   (unless lambda-list-p
-    (error 'lambda-list-must-be-supplied)))
-
+    (error 'lambda-list-must-be-supplied))
+  (unless specializers-p
+    (error 'specializers-must-be-supplied))
+  (check-specializers specializers lambda-list))
 
 (defmethod initialize-instance :around
     ((method method)
