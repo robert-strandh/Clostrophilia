@@ -29,6 +29,7 @@
        (lambda-list nil lambda-list-p)
        (specializers nil specializers-p)
        (function nil function-p)
+       documentation
      &allow-other-keys)
   (check-method-qualifiers qualifiers)
   (check-unspecialized-lambda-list lambda-list)
@@ -38,14 +39,17 @@
     (error 'specializers-must-be-supplied))
   (check-specializers specializers lambda-list)
   (unless function-p
-    (error 'function-must-be-supplied)))
+    (error 'function-must-be-supplied))
+  (unless (or (stringp documentation) (null documentation))
+    (error 'method-documentation-must-be-string-or-nil
+           :documentation-option documentation)))
 
 (defmethod initialize-instance :around
     ((method method)
      &rest initargs
      &key
        (qualifiers '())
-       )
+       (documentation nil))
   (apply #'call-next-method
          :qualifiers qualifiers
          initargs))
