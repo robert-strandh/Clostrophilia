@@ -48,7 +48,7 @@
      &key
        (direct-default-initargs '())
        (direct-slots '())
-       (direct-superclassses '())
+       (direct-superclasses '())
        (documentation nil)
      &allow-other-keys)
   (check-direct-default-initargs direct-default-initargs)
@@ -82,7 +82,9 @@
 
 (defmethod shared-initialize :after
     ((class class)
-     &key direct-slots
+     &key
+       direct-superclasses
+       direct-slots
      &allow-other-keys)
   (let* ((old *existing-superclasses*)
          (obsolete (set-difference old direct-superclasses))
