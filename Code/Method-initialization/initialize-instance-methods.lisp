@@ -44,6 +44,13 @@
     (error 'method-documentation-must-be-string-or-nil
            :documentation-option documentation)))
 
+(defmethod initialize-instance :before
+    ((method standard-accessor-method)
+     &key (slot-definition nil slot-definition-p)
+     &allow-other-keys)
+  (unless slot-definition-p
+    (error 'slot-definition-must-be-supplied)))
+
 (defmethod initialize-instance :around
     ((method method)
      &rest initargs
