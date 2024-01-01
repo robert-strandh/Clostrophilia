@@ -36,7 +36,9 @@
     (error 'lambda-list-must-be-supplied))
   (unless specializers-p
     (error 'specializers-must-be-supplied))
-  (check-specializers specializers lambda-list))
+  (check-specializers specializers lambda-list)
+  (unless function-p
+    (error 'function-must-be-supplied)))
 
 (defmethod initialize-instance :around
     ((method method)
