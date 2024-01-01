@@ -101,3 +101,11 @@
                       or NIL, but the following was found instead:~@
                       ~s"
                      (documentation-option condition)))))
+
+(define-condition method-can-not-be-reinitialized (program-error)
+  ((%method-object :initarg :method-object :reader method-object))
+  (:report (lambda (condition stream)
+             (format stream
+                     "Attempt to reinitialize a method metaobject:~@
+                      ~s"
+                     (method-object condition)))))
