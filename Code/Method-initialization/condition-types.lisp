@@ -31,6 +31,13 @@
              (format stream
                      "The LAMBDA-LIST keyword argument must be supplied"))))
 
+(define-condition specializers-must-be-supplied
+    (error)
+  ()
+  (:report (lambda (condition stream)
+             (format stream
+                     "The SPECIALIZERS keyword argument must be supplied"))))
+
 (defgeneric specializers (condition))
 
 (define-condition specializers-must-be-proper-list
