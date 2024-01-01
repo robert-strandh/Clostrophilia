@@ -49,7 +49,10 @@
      &key (slot-definition nil slot-definition-p)
      &allow-other-keys)
   (unless slot-definition-p
-    (error 'slot-definition-must-be-supplied)))
+    (error 'slot-definition-must-be-supplied))
+  (unless (typep slot-definition 'direct-slot-definition)
+    (error 'slot-definition-must-be-direct-slot-definition
+           :slot-definition slot-definition)))
 
 (defmethod initialize-instance :around
     ((method method)
