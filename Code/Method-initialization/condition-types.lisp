@@ -64,3 +64,10 @@
                       ~s"
                      (specializers condition)
                      (lambda-list condition)))))
+
+(define-condition function-must-be-supplied
+    (error)
+  ()
+  (:report (lambda (condition stream)
+             (format stream
+                     "The FUNCTION keyword argument must be supplied"))))
