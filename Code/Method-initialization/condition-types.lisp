@@ -71,3 +71,15 @@
   (:report (lambda (condition stream)
              (format stream
                      "The FUNCTION keyword argument must be supplied"))))
+
+(define-condition method-documentation-option-must-be-string-or-nil
+    (error)
+  ((%documentation-option
+    :initarg :documentation-option
+    :reader documentation-option))
+  (:report (lambda (condition stream)
+             (format stream
+                     "A method :DOCUMENTATION option must be a string~@
+                      or NIL, but the following was found instead:~@
+                      ~s"
+                     (documentation-option condition)))))
