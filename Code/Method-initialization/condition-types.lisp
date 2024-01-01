@@ -72,6 +72,13 @@
              (format stream
                      "The FUNCTION keyword argument must be supplied"))))
 
+(define-condition slot-definition-must-be-supplied
+    (error)
+  ()
+  (:report (lambda (condition stream)
+             (format stream
+                     "The SLOT-DEFINITION keyword argument must be supplied"))))
+
 (define-condition method-documentation-option-must-be-string-or-nil
     (error)
   ((%documentation-option
