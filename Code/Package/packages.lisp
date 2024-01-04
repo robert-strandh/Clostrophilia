@@ -2,6 +2,7 @@
 
 (defpackage #:clostrophilia
   (:use #:common-lisp)
+  (:shadow #:documentation)
   (:export
    ;; MOP classes.
    #:class #:standard-class #:built-in-class #:structure-class
