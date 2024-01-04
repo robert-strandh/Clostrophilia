@@ -79,15 +79,15 @@
 
 (define-condition generic-function-documentation-must-be-nil-or-string
     (program-error)
-  ((%documentation-option
+  ((%documentation
     :initarg :documentation
-    :reader documentation-option))
+    :reader documentation))
   (:report (lambda (condition stream)
              (format stream
                      "The documentation for a generic function must be nil~@
                       or a string.  But the following was found instead:~@
                       ~s"
-                     (documentation-option condition)))))
+                     (documentation condition)))))
 
 (define-condition generic-function-declaration-must-be-valid
     (program-error)

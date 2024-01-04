@@ -31,18 +31,18 @@
                      (readers condition))))
   (:default-initargs :type 'list))
 
-(defgeneric documentation-option (condition))
+(defgeneric documentation (condition))
 
-(define-condition malformed-documentation-option
+(define-condition malformed-documentation
     (program-error)
-  ((%documentation-option
-    :initarg :documentation-option :reader documentation-option))
+  ((%documentation
+    :initarg :documentation :reader documentation))
   (:report (lambda (condition stream)
              (format stream
                      "A documentation option must have the form~@
                       (:documentation <name>), but~@
                       ~s was found."
-                     (documentation-option condition)))))
+                     (documentation condition)))))
 
 (defgeneric direct-slots (condition))
 
@@ -171,14 +171,14 @@
                      (superclass condition)
                      (subclass condition)))))
 
-(define-condition class-documentation-option-must-be-string-or-nil
+(define-condition class-documentation-must-be-string-or-nil
     (error)
-  ((%documentation-option
-    :initarg :documentation-option
-    :reader documentation-option))
+  ((%documentation
+    :initarg :documentation
+    :reader documentation))
   (:report (lambda (condition stream)
              (format stream
                      "A class :DOCUMENTATION option must be a string~@
                       or NIL, but the following was found instead:~@
                       ~s"
-                     (documentation-option condition)))))
+                     (documentation condition)))))
