@@ -42,7 +42,7 @@
     (error 'function-must-be-supplied))
   (unless (or (stringp documentation) (null documentation))
     (error 'method-documentation-must-be-string-or-nil
-           :documentation-option documentation)))
+           :documentation documentation)))
 
 (defmethod initialize-instance :before
     ((method standard-accessor-method)

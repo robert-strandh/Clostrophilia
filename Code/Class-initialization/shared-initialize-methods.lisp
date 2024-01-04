@@ -56,8 +56,8 @@
   (check-direct-superclass-list class direct-superclasses)
   (unless (or (null documentation)
               (stringp documentation))
-    (error 'class-documentation-option-must-be-string-or-nil
-           :documentation-option documentation)))
+    (error 'class-documentation-must-be-string-or-nil
+           :documentation documentation)))
 
 (defun convert-slot-specification-to-direct-slot-definition
     (class direct-slot-specification)
