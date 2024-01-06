@@ -4,4 +4,5 @@
   :serial t
   :components
   ((:file "generic-functions")
-   (:file "compute-class-precedence-list")))
+   (:file "compute-class-precedence-list")
+   (:file "compute-default-initargs")))
