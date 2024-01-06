@@ -5,4 +5,5 @@
   :components
   ((:file "generic-functions")
    (:file "compute-class-precedence-list")
-   (:file "compute-default-initargs")))
+   (:file "compute-default-initargs")
+   (:file "compute-effective-slots")))
