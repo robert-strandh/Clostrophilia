@@ -53,7 +53,8 @@
      object
      slot)
   (declare (ignorable class) (ignore object slot))
-  (error "no slots in an instance of a builtin class"))
+  (error 'no-slots-in-a-built-in-class
+         :object object))
 
 (defun (setf slot-value-using-class-default) (new-value class object slot)
   (declare (ignore class))
@@ -83,7 +84,8 @@
    object
    slot)
   (declare (ignorable class) (ignore new-value object slot))
-  (error "no slots in an instance of a builtin class"))
+  (error 'no-slots-in-a-built-in-class
+         :object object))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;
@@ -113,7 +115,8 @@
      object
      slot)
   (declare (ignorable class) (ignore object slot))
-  (error "no slots in an instance of a builtin class"))
+  (error 'no-slots-in-a-built-in-class
+         :object object))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;
@@ -144,4 +147,5 @@
    object
    slot)
   (declare (ignorable class) (ignore object slot))
-  (error "no slots in an instance of a builtin class"))
+  (error 'no-slots-in-a-built-in-class
+         :object object))
