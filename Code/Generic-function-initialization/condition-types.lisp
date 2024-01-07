@@ -49,7 +49,7 @@
                      (required condition)
                      (argument-precedence-order condition)))))
 
-(define-condition argument-precedence-order-must-contain symbols
+(define-condition argument-precedence-order-must-contain-symbols
     (program-error)
   ((%argument-precedence-order
     :initarg :argument-precedence-order
