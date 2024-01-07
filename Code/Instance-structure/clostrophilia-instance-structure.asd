@@ -3,4 +3,5 @@
 (defsystem "clostrophilia-instance-structure"
   :serial t
   :components
-  ((:file "generic-functions")))
+  ((:file "generic-functions")
+   (:file "methods")))
