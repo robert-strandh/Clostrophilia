@@ -4,4 +4,5 @@
   :serial t
   :components
   ((:file "generic-functions")
-   (:file "methods")))
+   (:file "methods")
+   (:file "condition-types")))
