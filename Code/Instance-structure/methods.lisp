@@ -17,8 +17,9 @@
 
 (defmethod slot-unbound (class object slot-name)
   (declare (ignore class))
-  (error "the slot named ~s is unbound in the object ~s"
-         slot-name object))
+  (error 'unbound-slot
+         :name slot-name
+         :instance object))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;
