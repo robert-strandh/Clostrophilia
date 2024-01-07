@@ -7,7 +7,7 @@
        (name nil)
        (declarations '())
        (documentation nil)
-       (method-class nil (find-class 'standard-method))
+       (method-class (find-class 'standard-method))
      &allow-other-keys)
   (check-generic-function-declarations declarations)
   (check-documentation documentation)
