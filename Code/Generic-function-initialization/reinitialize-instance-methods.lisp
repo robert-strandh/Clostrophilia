@@ -7,5 +7,5 @@
      &allow-other-keys)
   (when method-class-p
     (unless (typep method-class 'method)
-      (error method-class-option-must-be-method-class
+      (error 'method-class-option-must-be-method-class
              :method-class method-class))))
