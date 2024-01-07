@@ -22,3 +22,15 @@
                       ~s"
                      (cell-error-name condition)
                      (unbound-slot-instance condition)))))
+
+(define-condition no-slots-in-a-built-in-class (error)
+  ((%object :initarg :object :reader object))
+  (:report (lambda (condition stream)
+             (format stream
+                     "An attempt was made to access a slot in the object:~@
+                      ~s~@
+                      but the class of the object is:~@
+                      ~s~@
+                      which is a built-in class, so it has no slots."
+                     (object condition)
+                     (class-of (object condition))))))
