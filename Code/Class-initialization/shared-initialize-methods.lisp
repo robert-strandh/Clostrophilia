@@ -45,6 +45,7 @@
 
 (defmethod shared-initialize :before
     ((class class)
+     (slot-names t)
      &key
        (direct-default-initargs '())
        (direct-slots '())
@@ -69,6 +70,7 @@
 
 (defmethod shared-initialize :around
     ((class class)
+     (slot-names t)
      &rest initargs
      &key
        direct-slots
@@ -82,6 +84,7 @@
 
 (defmethod shared-initialize :after
     ((class class)
+     (slot-names t)
      &key
        direct-superclasses
        direct-slots

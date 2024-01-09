@@ -17,6 +17,7 @@
 
 (defmethod shared-initialize :around
     ((generic-function generic-function)
+     (slot-names t)
      &rest initargs
      &key
        (lambda-list nil lambda-list-p)
@@ -57,6 +58,7 @@
 
 (defmethod shared-initialize :before
     ((generic-function generic-function)
+     (slot-names t)
      &key
        method-combination
      &allow-other-keys)
