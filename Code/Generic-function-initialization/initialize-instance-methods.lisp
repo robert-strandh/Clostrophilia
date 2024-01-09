@@ -10,7 +10,7 @@
        (method-class (find-class 'standard-method))
      &allow-other-keys)
   (check-generic-function-declarations declarations)
-  (check-documentation documentation)
+  (check-generic-function-documentation documentation)
   (unless (typep method-class 'method)
     (error 'method-class-option-must-be-method-class
            :method-class method-class))
