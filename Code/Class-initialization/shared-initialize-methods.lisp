@@ -79,6 +79,7 @@
           (convert-slot-specification-to-direct-slot-definition
            class direct-slots)))
     (apply #'call-next-method
+           class slot-names
            :direct-slots direct-slot-definitions
            initargs)))
 

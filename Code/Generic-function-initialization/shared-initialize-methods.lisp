@@ -53,6 +53,7 @@
                        :argument-precedence-order argument-precedence-order))
               (call-next-method))
             (apply #'call-next-method
+                   generic-function slot-names
                    :argument-precedence-order required
                    initargs)))))
 
