@@ -74,7 +74,7 @@
        (initargs '())
        (readers '())
        (writers '())
-       (documentation nil)
+       (documentation nil))
   (apply #'call-next-method
          :initform initform
          :initfunction initfunction
