@@ -15,9 +15,10 @@
     (error 'method-class-option-must-be-method-class
            :method-class method-class))
   (apply #'call-next-method
-         name
-         declarations
-         documentation
-         method-class
+         generic-function
+         :name name
+         :declarations declarations
+         :documentation documentation
+         :method-class method-class
          initargs))
 
