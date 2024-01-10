@@ -1,6 +1,6 @@
 (cl:in-package #:asdf-user)
 
-(defsystem "clostrophilica-method-initialization"
+(defsystem "clostrophilia-method-initialization"
   :serial t
   :components
   ((:file "condition-types")
