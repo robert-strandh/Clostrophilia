@@ -1,4 +1,4 @@
-(cl:in-package #:clostrophilia)
+(cl:in-package #:asdf-user)
 
 (defsystem "clostrophilica-method-initialization"
   :serial t
