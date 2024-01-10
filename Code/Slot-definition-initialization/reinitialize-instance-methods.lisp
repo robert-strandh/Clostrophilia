@@ -4,4 +4,4 @@
     ((slot-definition slot-definition)
      &key &allow-other-keys)
   (error 'slot-definition-can-not-be-reininitialized
-         :slot-definition method))
+         :slot-definition slot-definition))
