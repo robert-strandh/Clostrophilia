@@ -38,7 +38,7 @@
          (indices (precedence-indices lambda-list precedence-order))
          (methods (generic-function-methods generic-function))
          (applicability
-           (loop for method in method
+           (loop for method in methods
                  collect
                  (maybe-applicable-p method classes-of-arguments profile))))
     (if (member :sometimes applicability)
