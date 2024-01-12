@@ -1,4 +1,4 @@
-(cl:in-package #:clostrophilila)
+(cl:in-package #:clostrophilia)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;
