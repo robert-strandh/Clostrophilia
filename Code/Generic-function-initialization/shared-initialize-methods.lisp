@@ -35,7 +35,7 @@
                (ecclesia:extract-required canonicalized-lambda-list)))
         (if argument-precedence-order-p
             (progn
-              (unless (ecclesisa-proper-list-p
+              (unless (ecclesia:proper-list-p
                        argument-precedence-order)
                 (error 'argument-precedence-order-must-be-proper-list
                        :argument-precedence-order argument-precedence-order))
