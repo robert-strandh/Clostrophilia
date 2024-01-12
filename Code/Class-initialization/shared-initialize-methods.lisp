@@ -54,7 +54,7 @@
      &allow-other-keys)
   (check-direct-default-initargs direct-default-initargs)
   (check-direct-slot-specification direct-slots)
-  (check-direct-superclass-list class direct-superclasses)
+  (check-superclass-list class direct-superclasses)
   (unless (or (null documentation)
               (stringp documentation))
     (error 'class-documentation-must-be-string-or-nil
