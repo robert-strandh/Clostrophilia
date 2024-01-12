@@ -3,4 +3,5 @@
 (defsystem clostrophilia-generic-function-invocation
   :serial t
   :components
-  ((:file "compute-applicable-methods-using-classes")))
+  ((:file "sub-specializer-p")
+   (:file "compute-applicable-methods-using-classes")))
