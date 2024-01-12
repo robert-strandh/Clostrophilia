@@ -22,6 +22,34 @@
                   (return-from maybe-applicable-p nil)))
         finally (return result)))
 
+;;; Determine whether a method is more specific than another method
+;;; with respect to a list of classes of required arguments.
+;;;
+;;; Recall that whether a method is more or less specific than another
+;;; method is also a function of the classes of the arguments, because
+;;; the order of two classes in the class precedence list of two
+;;; different argument classes can be different.
+;;;
+;;; This function is called only with applicable methods with respect
+;;; to the classes of the arguments supplied.
+;;;
+;;; It is possible for two methods of a generic function to be equally
+;;; specific (which then means that they have the same specializer in
+;;; every required position), but then they must have different
+;;; qualifiers.  This function is called with all applicable
+;;; functions, independent of the qualifiers, so this situation might
+;;; happen here.
+
+(defun method-more-specific-p (method1 method2 classes-of-arguments indices)
+  (loop with specializers1 = (method-specializers method1)
+        with specializers2 = (method-specializers method2)
+        for index in indices
+        for s1 = (nth index specializers1)
+        for s2 = (nth index specializers2)
+        for class-of-argument = (nth index classes-of-arguments)
+        unless (eq s1 s2)
+          return (sub-specializer-p s1 s2 class-of-argument)))
+
 ;;; For the specification of this generic function, see
 ;;; http://metamodular.com/CLOS-MOP/compute-applicable-methods-using-classes.html
 (defgeneric compute-applicable-methods-using-classes
