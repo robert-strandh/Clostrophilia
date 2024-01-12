@@ -56,6 +56,11 @@
         unless (eq s1 s2)
           return (sub-specializer-p s1 s2 class-of-argument)))
 
+(defun precedence-indices (lambda-list precedence-order)
+  (let ((required (subseq lambda-list 0 (length precedence-order))))
+    (loop for parameter in precedence-order
+          collect (position parameter required))))
+
 ;;; For the specification of this generic function, see
 ;;; http://metamodular.com/CLOS-MOP/compute-applicable-methods-using-classes.html
 (defgeneric compute-applicable-methods-using-classes
