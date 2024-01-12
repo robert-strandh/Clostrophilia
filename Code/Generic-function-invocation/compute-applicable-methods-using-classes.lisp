@@ -1,5 +1,11 @@
 (cl:in-package #:clostrophilia)
 
+;;; We use MEMBER (rather than (say) FIND) because MEMBER is a rather
+;;; simple function that works only on lists, whereas we might want to
+;;; make FIND a generic function.
+(defun subclassp (class1 class2)
+  (member class2 (class-precedence-list class1) :test #'eq))
+
 ;;; Determine whether a method is applicable to a sequence of argument
 ;;; classes.  The result can be either T or NIL or :SOMETIMES.  The
 ;;; result is :SOMETIMES when the method has at least one EQL
