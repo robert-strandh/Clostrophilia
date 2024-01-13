@@ -8,4 +8,5 @@
    (:file "compute-applicable-methods-using-classes")
    (:file "compute-applicable-methods")
    (:file "compute-effective-method")
-   (:file "discriminating-automaton")))
+   (:file "discriminating-automaton")
+   (:file "discriminating-tagbody")))
