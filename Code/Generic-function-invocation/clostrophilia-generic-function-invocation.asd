@@ -6,4 +6,5 @@
   ((:file "classp")
    (:file "sub-specializer-p")
    (:file "compute-applicable-methods-using-classes")
-   (:file "compute-applicable-methods")))
+   (:file "compute-applicable-methods")
+   (:file "compute-effective-method")))
