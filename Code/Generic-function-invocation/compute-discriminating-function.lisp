@@ -386,10 +386,10 @@
 (defun make-cdr (n)
   (if (= n 0)
       'arguments
-      (list 'cleavir-primop:cdr (make-cdr (1- n)))))
+      (list 'cdr (make-cdr (1- n)))))
 
 (defun make-car-cdr (n)
-  (list 'cleavir-primop:car (make-cdr n)))
+  (list 'car (make-cdr n)))
 
 (defun make-discriminating-function-lambda (generic-function)
   (let* ((specializer-profile (specializer-profile generic-function))
