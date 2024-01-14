@@ -1,4 +1,4 @@
-(cl:in-package #:clostophilia)
+(cl:in-package #:clostrophilia)
 
 ;;; This function takes a method and, if it is a standard reader
 ;;; method or a standard writer method, it replaces it with a method
