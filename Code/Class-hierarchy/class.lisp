@@ -59,9 +59,7 @@
 
 (defclass class (specializer)
   ((%unique-number
-    ;; FIXME: the unique numbers should be assigned during class
-    ;; finalization, and not here.
-    :initform (prog1 *class-unique-number* (incf *class-unique-number*))
+    :initarg :unique-number
     :reader unique-number)
    (%name
     :initform nil
