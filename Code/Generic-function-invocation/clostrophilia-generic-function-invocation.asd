@@ -10,4 +10,5 @@
    (:file "compute-effective-method")
    (:file "discriminating-automaton")
    (:file "discriminating-tagbody")
+   (:file "maybe-replace-method")
    (:file "compute-discriminating-function")))
