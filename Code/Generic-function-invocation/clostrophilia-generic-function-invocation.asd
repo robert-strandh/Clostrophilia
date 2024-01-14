@@ -9,4 +9,5 @@
    (:file "compute-applicable-methods")
    (:file "compute-effective-method")
    (:file "discriminating-automaton")
-   (:file "discriminating-tagbody")))
+   (:file "discriminating-tagbody")
+   (:file "compute-discriminating-function")))
