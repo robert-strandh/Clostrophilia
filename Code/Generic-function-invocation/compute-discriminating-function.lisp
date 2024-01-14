@@ -253,6 +253,10 @@
   (loop for method in methods
         collect (maybe-replace-method method classes)))
 
+;;; For the specification of this generic function, see
+;;; http://metamodular.com/CLOS-MOP/compute-discriminating-function.html
+(defgeneric compute-discriminating-function (generic-function))
+
 ;;; This function computes a discriminating for a generic function,
 ;;; given the existing call history, and then it call
 ;;; SET-FUNCALLABLE-INSTANCE-FUNCTION in order to install that
