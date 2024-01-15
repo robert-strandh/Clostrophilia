@@ -26,6 +26,10 @@
 ;;; the effective slots of the class.
 (defgeneric (setf class-slots) (effective-slots class))
 
+(defgeneric dependents (class))
+
+(defgeneric (setf dependents) (dependents class))
+
 (defclass regular-class (real-class)
   ((%direct-slots
     :initarg :direct-slots
