@@ -26,6 +26,8 @@
 ;;; SLOT-VALUE, (SETF SLOT-VALUE),
 ;;; SLOT-VALUE-USING-CLASS (SETF SLOT-VALUE-USING-CLASS)
 
+(defparameter +unbound-slot-value+ (list nil))
+
 (defun slot-value-using-class-default (class object slot)
   (let* ((location (slot-definition-location slot))
          (value
@@ -61,8 +63,7 @@
   (let ((location (slot-definition-location slot)))
     (if (consp location)
         (setf (car location) new-value)
-        (progn (cleavir-primop:nook-write object location new-value)
-               new-value))))
+        (setf (standard-instance-access object location) new-value))))
 
 (defmethod (setf slot-value-using-class)
     (new-value
