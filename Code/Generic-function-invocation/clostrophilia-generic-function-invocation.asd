@@ -12,4 +12,5 @@
    (:file "discriminating-tagbody")
    (:file "maybe-replace-method")
    (:file "compute-discriminating-function")
+   (:file "add-remove-direct-method")
    (:file "add-remove-method")))
