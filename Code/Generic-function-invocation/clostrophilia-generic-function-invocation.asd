@@ -15,4 +15,5 @@
    (:file "compute-discriminating-function")
    (:file "add-remove-direct-method")
    (:file "invalidate-discriminating-function")
-   (:file "add-remove-method")))
+   (:file "add-remove-method")
+   (:file "condition-types")))
