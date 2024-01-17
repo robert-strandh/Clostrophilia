@@ -77,6 +77,7 @@
    (:file "add-direct-subclass-defgeneric")
    (:file "add-direct-subclass-defmethod")
    (:file "default-superclasses")
+   (:file "direct-slot-definition-class")
    (:file "reader-method-class")
    (:file "writer-method-class")
    (:file "validate-superclass-defgeneric")
