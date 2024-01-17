@@ -11,6 +11,7 @@
    (:file "discriminating-automaton")
    (:file "discriminating-tagbody")
    (:file "maybe-replace-method")
+   (:file "no-applicable-method")
    (:file "compute-discriminating-function")
    (:file "add-remove-direct-method")
    (:file "invalidate-discriminating-function")
