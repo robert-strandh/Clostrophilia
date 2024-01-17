@@ -26,8 +26,6 @@
 ;;; SLOT-VALUE, (SETF SLOT-VALUE),
 ;;; SLOT-VALUE-USING-CLASS (SETF SLOT-VALUE-USING-CLASS)
 
-(defparameter +unbound-slot-value+ (list nil))
-
 (defun slot-value-using-class-default (class object slot)
   (let* ((location (slot-definition-location slot))
          (value
