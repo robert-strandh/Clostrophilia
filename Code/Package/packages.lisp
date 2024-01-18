@@ -44,4 +44,7 @@
    #:option-identity-with-one-argument-given-more-than-once
    #:option-operator-given-more-than-once
    #:method-group-specifier-must-be-proper-list
-   #:name-of-method-group-specifier-must-be-symbol))
+   #:name-of-method-group-specifier-must-be-symbol
+   #:no-applicable-method-error
+   ;; Diverse
+   #:set-funcallable-instance-function))
