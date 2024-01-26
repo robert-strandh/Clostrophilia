@@ -81,4 +81,5 @@
    #:add-method
    #:remove-method
    #:allocate-instance
-   #:set-funcallable-instance-function))
+   #:set-funcallable-instance-function
+   #:finalize-inheritance))
