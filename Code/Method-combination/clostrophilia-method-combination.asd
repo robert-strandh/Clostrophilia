@@ -5,10 +5,7 @@
                "ecclesia")
   :serial t
   :components
-  ((:file "accessor-defgenerics")
-   (:file "method-combination-defclass")
-   (:file "method-combination-template-defclass")
-   (:file "method-group-specifier")
+  ((:file "method-group-specifier")
    (:file "method-discriminator")
    (:file "long-form-expansion")
    (:file "short-form-expansion")
