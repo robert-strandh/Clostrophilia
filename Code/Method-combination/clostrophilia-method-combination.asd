@@ -15,4 +15,5 @@
    (:file "short-form-expansion")
    (:file "find-method-combination-defun")
    (:file "define-method-combination-defmacro")
+   (:file "standard-method-combination")
    (:file "condition-types")))
