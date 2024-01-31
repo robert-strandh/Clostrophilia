@@ -12,5 +12,4 @@
    (:file "find-method-combination-defun")
    (:file "define-method-combination-defmacro")
    (:file "standard-method-combination")
-   (:file "built-in-method-combinations")
-   (:file "condition-types")))
+   (:file "built-in-method-combinations")))
