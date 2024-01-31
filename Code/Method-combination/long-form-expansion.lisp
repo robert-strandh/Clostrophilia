@@ -17,21 +17,16 @@
           (ecclesia:extract-lambda-list-variables lambda-list)))
     (multiple-value-bind (declarations documentation forms)
         (ecclesia:separate-function-body body)
-      `(let ((template (find-method-combination-template nil ',name)))
-         (when (null template)
-           (setf template
-                 (make-instance 'method-combination-template
-                   :name ',name
-                   :documentation ,documentation
-                   :variant-signature-determiner
-                   (lambda ,lambda-list
-                     (list ,@lambda-list-variables))
-                   :effective-method-form-function
-                   ,(long-form-lambda
-                     lambda-list-variables
-                     method-group-specifiers
-                     declarations
-                     forms)))
-           (setf (find-method-combination-template nil ',name)
-                 template))
-         ',name))))
+      `(progn (ensure-method-combination-template
+               :name ',name
+               :documentation ,documentation
+               :variant-signature-determiner
+               (lambda ,lambda-list
+                 (list ,@lambda-list-variables))
+               :effective-method-form-function
+               ,(long-form-lambda
+                 lambda-list-variables
+                 method-group-specifiers
+                 declarations
+                 forms))
+              ',name))))
