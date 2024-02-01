@@ -6,7 +6,7 @@
     (loop for variant in (variants template)
           do (when (equal (variant-signature variant)
                           variant-signature)
-               (return-from find-method-combination variant)))
+               (return-from ensure-method-combination variant)))
     (let ((new-variant (make-instance 'method-combination
                          :variant-signature variant-signature
                          :template template)))
