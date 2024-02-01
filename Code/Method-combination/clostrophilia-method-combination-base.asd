@@ -7,4 +7,5 @@
   :components
   ((:file "accessor-defgenerics")
    (:file "method-combination-defclass")
-   (:file "method-combination-template-defclass")))
+   (:file "method-combination-template-defclass")
+   (:file "ensure-method-combination")))
