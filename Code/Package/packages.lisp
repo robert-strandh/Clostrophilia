@@ -82,4 +82,5 @@
    #:remove-method
    #:allocate-instance
    #:set-funcallable-instance-function
-   #:finalize-inheritance))
+   #:finalize-inheritance
+   #:find-method-combination))
