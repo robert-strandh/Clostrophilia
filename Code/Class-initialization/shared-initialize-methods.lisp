@@ -33,7 +33,7 @@
     (error 'direct-slot-specification-must-be-property-list
            :direct-slot-specification direct-slot-specification))
   (let ((default (list nil)))
-    (when (eq (getf direct-slot-specification) default)
+    (when (eq (getf direct-slot-specification :name default) default)
       (error 'name-property-must-be-present
              :direct-slot-specification direct-slot-specification))))
 
