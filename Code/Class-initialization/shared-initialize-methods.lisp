@@ -53,7 +53,7 @@
        (documentation nil)
      &allow-other-keys)
   (check-direct-default-initargs direct-default-initargs)
-  (check-direct-slot-specification direct-slots)
+  (check-direct-slot-specifications direct-slots)
   (check-superclass-list class direct-superclasses)
   (unless (or (null documentation)
               (stringp documentation))
