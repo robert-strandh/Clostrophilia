@@ -68,6 +68,12 @@
     (apply #'make-instance direct-slot-definition-class
            direct-slot-specification)))
 
+(defun convert-slot-specifications-to-direct-slot-definitions
+    (class direct-slot-specifications)
+  (loop for direct-slot-specification in direct-slot-specifications
+        collect (convert-slot-specification-to-direct-slot-definition
+                 class direct-slot-specification)))
+
 (defmethod shared-initialize :around
     ((class class)
      (slot-names t)
@@ -76,7 +82,7 @@
        direct-slots
      &allow-other-keys)
   (let ((direct-slot-definitions
-          (convert-slot-specification-to-direct-slot-definition
+          (convert-slot-specifications-to-direct-slot-definitions
            class direct-slots)))
     (apply #'call-next-method
            class slot-names
