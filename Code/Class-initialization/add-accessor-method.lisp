@@ -80,9 +80,8 @@
                                 :slot-definition slot-definition)))
     (add-method generic-function method)))
 
-(defun create-readers-and-writers (class direct-slot-definitions)
-  (loop for definition in direct-slot-definitions
-        do (loop for reader in (slot-definition-readers definition)
-                 do (add-reader-method class reader definition))
-           (loop for writer in (slot-definition-writers definition)
-                 do (add-writer-method class writer definition))))
+(defun create-readers-and-writers (class direct-slot-definition)
+  (loop for reader in (slot-definition-readers direct-slot-definition)
+        do (add-reader-method class reader direct-slot-definition))
+  (loop for writer in (slot-definition-writers direct-slot-definition)
+        do (add-writer-method class writer direct-slot-definition)))
