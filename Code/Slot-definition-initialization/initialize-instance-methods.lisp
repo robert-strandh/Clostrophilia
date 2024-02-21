@@ -77,6 +77,7 @@
        (documentation nil)
      &allow-other-keys)
   (apply #'call-next-method
+         slot-definition
          :initform initform
          :initfunction initfunction
          :type type
