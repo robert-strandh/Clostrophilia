@@ -53,7 +53,6 @@
        (documentation nil)
      &allow-other-keys)
   (check-direct-default-initargs direct-default-initargs)
-  (check-direct-slot-specifications direct-slots)
   (check-superclass-list class direct-superclasses)
   (unless (or (null documentation)
               (stringp documentation))
@@ -81,6 +80,7 @@
      &key
        direct-slots
      &allow-other-keys)
+  (check-direct-slot-specifications direct-slots)
   (let ((direct-slot-definitions
           (convert-slot-specifications-to-direct-slot-definitions
            class direct-slots)))
