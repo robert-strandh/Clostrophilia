@@ -62,5 +62,6 @@
        (documentation nil)
      &allow-other-keys)
   (apply #'call-next-method
+         method
          :qualifiers qualifiers
          initargs))
