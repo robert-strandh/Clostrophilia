@@ -59,7 +59,8 @@
      &rest initargs
      &key
        (qualifiers '())
-       (documentation nil))
+       (documentation nil)
+     &allow-other-keys)
   (apply #'call-next-method
          :qualifiers qualifiers
          initargs))
