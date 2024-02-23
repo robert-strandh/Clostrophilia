@@ -34,6 +34,13 @@
    #:class-default-initargs
    #:class-finalized-p
    #:class-prototype
+   ;; Accessors for generic-function metaobjects
+   #:generic-function-argument-precedence-order
+   #:generic-function-declarations
+   #:generic-function-lambda-list
+   #:generic-function-method-combination
+   #:generic-function-method-class
+   #:generic-function-name
    ;; Accessors for method metaobjects
    method-generic-function
    method-function
