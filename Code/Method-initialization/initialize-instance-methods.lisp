@@ -16,7 +16,9 @@
   (unless (ecclesia:proper-list-p specializers)
     (error 'specializers-must-be-proper-list
            :specializers specializers))
-  (let ((required (ecclesia:extract-required lambda-list)))
+  (let* ((canonicalized-lambda-list
+           (ecclesia:canonicalize-ordinary-lambda-list lambda-list))
+         (required (ecclesia:extract-required canonicalized-lambda-list)))
     (unless (= (length specializers) (length required))
       (error 'incorrect-number-of-specializers
              :specializers specializers
