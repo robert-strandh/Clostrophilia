@@ -35,14 +35,6 @@
 ;;; FIXME: say more.
 (defgeneric (setf call-history) (new-call-history generic-function))
 
-;;; This function returns the specializer profile of the generic function.
-;;; FIXME: say more.
-(defgeneric specializer-profile (generic-function))
-
-;;; This function sets the specializer profile of the generic function.
-;;; FIXME: say more.
-(defgeneric (setf specializer-profile) (new-specializer-profile generic-function))
-
 (defclass standard-generic-function (generic-function)
   ((%argument-precedence-order
     :initarg :argument-precedence-order
@@ -81,16 +73,7 @@
    ;; we add a call record to the call history.
    (%call-history 
     :initform '() 
-    :accessor call-history)
-   ;; This slot is set by ADD-METHOD and REMOVE-METHOD.
-   ;; It cnotains a list that has the same length as the 
-   ;; number of required parameters of the generic function.
-   ;; It contains NIL in each position where only the class T
-   ;; is specialized for, and T in each position where some
-   ;; method specialized for something other than the class T.
-   (%specializer-profile
-    :initarg :specializer-profile
-    :accessor specializer-profile))
+    :accessor call-history))
   (:metaclass funcallable-standard-class)
   (:default-initargs
    :declarations '()
