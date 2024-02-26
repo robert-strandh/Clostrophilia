@@ -58,7 +58,7 @@
          (generic-function
            (ensure-generic-function
             function-name :lambda-list lambda-list))
-         (specializers (list (find-class 't) class))
+         (specializers (list (find-class-t) class))
          (slot-name (slot-definition-name slot-definition))
          (method-function
            (lambda (arguments next-methods)
