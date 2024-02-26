@@ -24,6 +24,10 @@
 ;;; http://metamodular.com/CLOS-MOP/method-qualifiers.html
 (defgeneric method-qualifiers (method))
 
+(defgeneric documentation (object))
+
+(defgeneric (setf documentation) (new-documentation object))
+
 (defclass method (metaobject)
   ((%function 
     :initarg :function 
