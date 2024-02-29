@@ -11,7 +11,7 @@
      &allow-other-keys)
   (check-generic-function-declarations declarations)
   (check-generic-function-documentation documentation)
-  (unless (typep method-class 'method)
+  (unless (subtypep method-class (find-class 'method))
     (error 'method-class-option-must-be-method-class
            :method-class method-class))
   (apply #'call-next-method
