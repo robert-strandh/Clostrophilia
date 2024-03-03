@@ -1,12 +1,16 @@
 (cl:in-package #:clostrophilia)
 
+(defvar *standard-object*)
+
+(defvar *funcallable-standard-object*)
+
 (defgeneric default-superclasses (class))
 
 (defmethod default-superclasses (class)
   '())
 
 (defmethod default-superclasses ((class standard-class))
-  (list (find-class-standard-object)))
+  (list *standard-object*))
 
 (defmethod default-superclasses ((class funcallable-standard-class))
-  (list (find-class-funcallable-standard-object)))
+  (list *funcallable-standard-object*))
