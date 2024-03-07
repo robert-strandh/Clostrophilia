@@ -5,7 +5,7 @@
   (:shadow #:documentation)
   (:export
    ;; MOP classes.
-   #:regular-class
+   #:regular-class #:real-class
    #:class #:standard-class #:built-in-class #:structure-class
    #:forward-referenced-class
    #:funcallable-standard-class
