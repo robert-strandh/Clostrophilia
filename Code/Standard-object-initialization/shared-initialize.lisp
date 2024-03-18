@@ -39,7 +39,7 @@
                                           slot-names)))
                      ;; Evaluate the initform by executing the
                      ;; initfunction.
-                     (setf (slot-value-using-class-default class instance slot)
+                     (setf (slot-value-using-class class instance slot)
                            (funcall (slot-definition-initfunction slot)))))))
     ;; Store the class slots in the instance so that we can update the
     ;; instance when the class changes.
