@@ -1,10 +1,6 @@
 (cl:in-package #:clostrophilia)
 
 ;;; For the specification of this generic function, see
-;;; http://metamodular.com/CLOS-MOP/slot-boundp-using-class.html
-(defgeneric slot-boundp-using-class (class object slot))
-
-;;; For the specification of this generic function, see
 ;;; http://metamodular.com/CLOS-MOP/slot-value-using-class.html
 (defgeneric slot-value-using-class (class object slot))
 
