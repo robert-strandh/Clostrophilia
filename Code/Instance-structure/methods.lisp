@@ -1,11 +1,5 @@
 (cl:in-package #:clostrophilia)
 
-(defmethod slot-unbound (class object slot-name)
-  (declare (ignore class))
-  (error 'unbound-slot
-         :name slot-name
-         :instance object))
-
 (defun slot-value-using-class-default (class object slot)
   (let* ((location (slot-definition-location slot))
          (value

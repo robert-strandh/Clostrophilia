@@ -6,5 +6,6 @@
   ((:file "generic-functions")
    (:file "slot-bound-using-index")
    (:file "slot-missing")
+   (:file "slot-unbound")
    (:file "methods")
    (:file "condition-types")))
