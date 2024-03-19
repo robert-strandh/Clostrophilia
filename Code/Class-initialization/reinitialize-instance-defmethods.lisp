@@ -6,7 +6,7 @@
      &key
        (direct-superclasses '() direct-superclasses-p)
      &allow-other-keys)
-  (let ((*existing-superclasses* (class-direct-subclasses class)))
+  (let ((*existing-superclasses* (class-direct-superclasses class)))
     (if direct-superclasses-p
         (if (null direct-superclasses)
             (apply #'call-next-method
