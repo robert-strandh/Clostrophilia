@@ -1,30 +1,10 @@
 (cl:in-package #:clostrophilia)
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;
-;;; SLOT-MISSING.
-
-(defmethod slot-missing
-    (class object slot-name operation &optional new-value)
-  (declare (ignore class operation new-value))
-  (error 'slot-missing
-         :name slot-name
-         :object object))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;
-;;; SLOT-UNBOUND.
-
 (defmethod slot-unbound (class object slot-name)
   (declare (ignore class))
   (error 'unbound-slot
          :name slot-name
          :instance object))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;
-;;; SLOT-VALUE, (SETF SLOT-VALUE),
-;;; SLOT-VALUE-USING-CLASS (SETF SLOT-VALUE-USING-CLASS)
 
 (defun slot-value-using-class-default (class object slot)
   (let* ((location (slot-definition-location slot))

@@ -17,10 +17,5 @@
 (defgeneric slot-makunbound-using-class (class object slot))
 
 ;;; For the specification of this generic function, see
-;;; http://www.lispworks.com/documentation/HyperSpec/Body/f_slt_mi.htm#slot-missing
-(defgeneric slot-missing
-    (class object slot-name operation &optional new-value))
-
-;;; For the specification of this generic function, see
 ;;; http://www.lispworks.com/documentation/HyperSpec/Body/f_slt_un.htm#slot-unbound
 (defgeneric slot-unbound (class object slot-name))
