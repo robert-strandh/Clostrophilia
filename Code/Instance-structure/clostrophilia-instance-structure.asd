@@ -9,5 +9,6 @@
    (:file "slot-unbound")
    (:file "slot-boundp-using-class")
    (:file "slot-value-using-class")
+   (:file "slot-makunbound-using-class")
    (:file "methods")
    (:file "condition-types")))
