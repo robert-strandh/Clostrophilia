@@ -15,7 +15,10 @@
 ;;; more sense.  For that reason, we finalize the class here.
 
 (defun make-instance-using-class
-    (class &rest initargs &key &allow-other-keys)
+    (class
+     &rest initargs
+     &key (additional-size 0)
+     &allow-other-keys)
   (unless (class-finalized-p class)
     (finalize-inheritance class))
   ;; FIXME: check shape of initargs (proper, length is even, etc.).
@@ -26,6 +29,11 @@
                (setf defaulted-initargs
                      (append defaulted-initargs
                              (list name (funcall thunk))))))
-    (let ((instance (apply #'allocate-instance class defaulted-initargs)))
+    (let ((instance
+            (apply #'allocate-instance class
+                   :stamp (unique-number class)
+                   :size (+ (instance-size class) additional-size)
+                   :slots (class-slots class)
+                   defaulted-initargs)))
       (apply #'initialize-instance instance defaulted-initargs)
       instance)))
