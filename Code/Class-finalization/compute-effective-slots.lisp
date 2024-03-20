@@ -138,7 +138,7 @@
 ;;; Use REAL-CLASS for now.
 (defmethod compute-slots :around ((class real-class))
   (let ((slots (call-next-method))
-        (next-location 2))
+        (next-location 0))
     (loop for slot in slots
           do (when (eq (slot-definition-allocation slot) :instance)
                (setf (slot-definition-location slot)
