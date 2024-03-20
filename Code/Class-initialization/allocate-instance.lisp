@@ -31,10 +31,13 @@
 
 (defmethod allocate-instance
     ((class regular-class)
-     &key size slots stamp
-     &rest initargs)
-  (defun allocate-instance-regular-class
-    (class &key (additional-space 0) &allow-other-keys)
-  (let ((instance (allocate-general-instance class (+ size 2))))
+     &key (additional-size 0)
+     &rest initargs
+     &allow-other-keys)
+  (let* ((size (+ (instance-size class) additional-size 2))
+         (stamp (unique-number class))
+         (slots (class-slots class))
+         (instance (allocate-general-instance class size)))
     (setf (standard-instance-access instance -2) stamp
           (standard-instance-access instance -1) slots)
+    instance))
