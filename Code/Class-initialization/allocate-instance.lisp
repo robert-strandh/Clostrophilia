@@ -31,8 +31,8 @@
 
 (defmethod allocate-instance
     ((class regular-class)
-     &key (additional-size 0)
      &rest initargs
+     &key (additional-size 0)
      &allow-other-keys)
   (let* ((size (+ (instance-size class) additional-size 2))
          (stamp (unique-number class))
