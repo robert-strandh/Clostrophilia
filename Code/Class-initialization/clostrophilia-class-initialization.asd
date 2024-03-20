@@ -89,6 +89,7 @@
    (:file "initialize-instance-defmethods")
    (:file "reinitialize-instance-defmethods")
    (:file "shared-initialize-methods")
+   (:file "allocate-instance")
    (:file "make-instance-using-class")
    (:file "condition-types")))
 
