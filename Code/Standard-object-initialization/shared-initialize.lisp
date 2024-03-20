@@ -46,6 +46,6 @@
                            (funcall (slot-definition-initfunction slot)))))))
     ;; Store the class slots in the instance so that we can update the
     ;; instance when the class changes.
-    (setf (standard-instance-access instance +instance-slots-offset+)
+    (setf (standard-instance-access instance -1)
           slots))
   instance)
