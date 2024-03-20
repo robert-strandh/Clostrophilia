@@ -31,9 +31,7 @@
                              (list name (funcall thunk))))))
     (let ((instance
             (apply #'allocate-instance class
-                   :stamp (unique-number class)
-                   :size (+ (instance-size class) additional-size)
-                   :slots (class-slots class)
+                   :additional-size additional-size
                    defaulted-initargs)))
       (apply #'initialize-instance instance defaulted-initargs)
       instance)))
