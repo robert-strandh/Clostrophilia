@@ -62,7 +62,7 @@
     ;; typically faster).  Our solution is to define the ACCESSOR
     ;; named PRECEDENCE-LIST.
     :accessor precedence-list)
-   ;; ALLOCATE-INSTANCE and ALLOCATE-BUILT-IN-INSTANCE access this
-   ;; slot in order to determine the size of the instance to allocate.
-   ;; The writer is used during class finalization.
+   ;; ALLOCATE-INSTANCE accesses this slot in order to determine the
+   ;; size of the instance to allocate.  The writer is used during
+   ;; class finalization.
    (%instance-size :accessor instance-size)))
