@@ -27,6 +27,7 @@
                (setf defaulted-initargs
                      (append defaulted-initargs
                              (list name (funcall thunk))))))
-    (apply #'allocate-instance class
-           :additional-size additional-size
-           defaulted-initargs)))
+    (values (apply #'allocate-instance class
+                   :additional-size additional-size
+                   defaulted-initargs)
+            defaulted-initargs)))
