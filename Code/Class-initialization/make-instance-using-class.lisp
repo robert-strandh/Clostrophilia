@@ -2,9 +2,7 @@
 
 ;;; This function is called by the method on MAKE-INSTANCE specialized
 ;;; to CLASS.  Client code will have to define MAKE-INSTANCE
-;;; accordinly.  And Clostrophilia does not supply a definition for
-;;; ALLOCATE-INSTANCE, because object representation is the
-;;; responsibility of client code.
+;;; accordinly.
 
 ;;; The AMOP says that ALLOCATE-INSTANCE checks whether the class is
 ;;; finalized, and if not, calls FINALIZE-INHERITANCE.  However, the
@@ -14,7 +12,7 @@
 ;;; in MAKE-INSTANCE, before ALLOCATE-INSTANCE is called, which makes
 ;;; more sense.  For that reason, we finalize the class here.
 
-(defun make-instance-using-class
+(defun allocate-instance-using-class
     (class
      &rest initargs
      &key (additional-size 0)
@@ -29,9 +27,6 @@
                (setf defaulted-initargs
                      (append defaulted-initargs
                              (list name (funcall thunk))))))
-    (let ((instance
-            (apply #'allocate-instance class
-                   :additional-size additional-size
-                   defaulted-initargs)))
-      (apply #'initialize-instance instance defaulted-initargs)
-      instance)))
+    (apply #'allocate-instance class
+           :additional-size additional-size
+           defaulted-initargs)))
