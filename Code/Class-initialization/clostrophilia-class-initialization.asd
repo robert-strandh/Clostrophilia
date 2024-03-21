@@ -90,7 +90,7 @@
    (:file "reinitialize-instance-defmethods")
    (:file "shared-initialize-methods")
    (:file "allocate-instance")
-   (:file "make-instance-using-class")
+   (:file "allocate-instance-using-class")
    (:file "condition-types")))
 
 ; LocalWords:  reinitialization
