@@ -10,6 +10,7 @@
     (if direct-superclasses-p
         (if (null direct-superclasses)
             (apply #'call-next-method
+                   class
                    :direct-superclasses (default-superclasses class)
                    initargs)
             (call-next-method))
