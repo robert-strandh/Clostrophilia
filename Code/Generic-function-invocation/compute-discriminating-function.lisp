@@ -406,9 +406,10 @@
     (when (null call-history)
       (return-from make-discriminating-function-lambda
         `(lambda (&rest arguments)
-           (default-discriminating-function ,generic-function
-                                            arguments
-                                            ',specializer-profile))))
+           (let ((profile (specializer-profile ,generic-function)))
+             (default-discriminating-function ,generic-function
+                                              arguments
+                                              profile)))))
     ;; Come here when the call history is not empty.  Create a
     ;; dictionary, mapping effective methods to forms containing APPLY
     ;; that call those methods.
