@@ -13,7 +13,6 @@
              ;;     ;; the key is one of the initargs of the slot.
              ;;     (get-properties initargs (slot-definition-initargs slot))
              ;;   (declare (ignore key))
-             ;;   (format *trace-output* "here 3~%")
              ;;
              ;; The following loop replaces the commented-out code
              ;; above.  The reason is that MUTLIPE-VALUE-BIND might
