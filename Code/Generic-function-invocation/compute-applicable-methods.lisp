@@ -46,8 +46,7 @@
 ;;; COMPUTE-DISCRIMINATING-FUNCTION, so there is no trace of it here.
 
 ;;; The specification includes a single method on this generic
-;;; function, specialized for STANDARD-GENERIC-FUNCTION.  The default
-;;; action below is valid for that method.
+;;; function, specialized for STANDARD-GENERIC-FUNCTION.
 (defmethod compute-applicable-methods
     ((generic-function standard-generic-function) arguments)
   (let* ((profile (specializer-profile generic-function))
