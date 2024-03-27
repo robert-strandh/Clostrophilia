@@ -4,12 +4,13 @@
 ;;; arguments.  The list of arguments may contain more elements than
 ;;; there are required parameters, and in that case the remaining
 ;;; elements of the list of arguments are simply ignored.
-(defun definitely-applicable-p (method arguments)
+(defun definitely-applicable-p (method arguments classes)
   (loop for specializer in (method-specializers method)
         for argument in arguments
+        for class in classes
         do (if (classp specializer)
                (unless (eq specializer (find-class 't))
-                 (unless (subclassp (class-of argument) specializer)
+                 (unless (subclassp class specializer)
                    (return-from definitely-applicable-p nil)))
                (unless (eql (eql-specializer-object specializer) argument)
                  (return-from definitely-applicable-p nil)))
@@ -63,7 +64,8 @@
          (indices (precedence-indices lambda-list precedence-order)))
     (let ((result (sort
                    (loop for method in methods
-                         when (definitely-applicable-p method arguments)
+                         when (definitely-applicable-p
+                                  method arguments classes-of-arguments)
                            collect method)
                    (lambda (method1 method2)
                      (method-more-specific-p
