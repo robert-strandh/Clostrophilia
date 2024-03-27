@@ -56,7 +56,7 @@
          (classes-of-arguments
            (loop for argument in required-arguments
                  for p in profile
-                 collect (if p (class-of argument) (find-class 't))))
+                 collect (if p (class-of-argument argument) (find-class 't))))
          (lambda-list (generic-function-lambda-list generic-function))
          (precedence-order
            (generic-function-argument-precedence-order generic-function))

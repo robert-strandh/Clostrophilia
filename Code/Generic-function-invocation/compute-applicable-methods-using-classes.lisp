@@ -22,7 +22,8 @@
                  ((classp specializer)
                   (unless (subclassp class specializer)
                     (return-from maybe-applicable-p nil)))
-                 ((eq (class-of (eql-specializer-object specializer)) class)
+                 ((let ((object (eql-specializer-object specializer)))
+                    (eq (class-of-argument object) class))
                   (setf result :sometimes))
                  (t
                   (return-from maybe-applicable-p nil)))

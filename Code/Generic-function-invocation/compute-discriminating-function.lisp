@@ -338,7 +338,9 @@
          (required-arguments (subseq arguments 0 required-argument-count))
          (classes (loop for argument in required-arguments
                         for p in profile
-                        collect (if p (class-of argument) (find-class 't))))
+                        collect (if p
+                                    (class-of-argument argument)
+                                    (find-class 't))))
          (relevant-classes (loop for class in classes
                                  for p in profile
                                  when p
