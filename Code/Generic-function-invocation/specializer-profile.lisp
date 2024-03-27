@@ -15,4 +15,5 @@
     (loop for method in (generic-function-methods generic-function)
         for specializers = (method-specializers method)
         do (setf profile
-                 (compute-specializer-profile profile specializers)))))
+                 (compute-specializer-profile profile specializers)))
+    profile))
