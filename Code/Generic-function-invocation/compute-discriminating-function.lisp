@@ -1,5 +1,15 @@
 (cl:in-package #:clostrophilia)
 
+;;; We assume this code is executed to create functions and methods of
+;;; refinement R.  These functions and methods operate on generic
+;;; functions and methods of refinement R+1.
+;;;
+;;; They also operate on the arguments to the generic functions of
+;;; refinement R+1, and these arguments are of refinement R+2.  When
+;;; we need to know the classes of those arguments, we must call
+;;; CLASS-OF of refinement R+1.  That function is therefore referred
+;;; to here as CLASS-OF+1.
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;
 ;;; Class cache.
@@ -339,7 +349,7 @@
          (classes (loop for argument in required-arguments
                         for p in profile
                         collect (if p
-                                    (class-of-argument argument)
+                                    (class-of-+1 argument)
                                     (find-class 't))))
          (relevant-classes (loop for class in classes
                                  for p in profile
