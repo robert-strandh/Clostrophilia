@@ -9,6 +9,15 @@
 ;;; we need to know the classes of those arguments, we must call
 ;;; CLASS-OF of refinement R+1.  That function is therefore referred
 ;;; to here as CLASS-OF+1.
+;;;
+;;; The specializers of a method being operated on are of refinement
+;;; R+1 just like the method itself.  So when we want to compare such
+;;; a specializer to the class named T, that class must be the class
+;;; of that name of refinement R+1.  Rather than calling FIND-CLASS of
+;;; refinement R+1 to obtain that class, we introduce a special
+;;; variable *CLASS-T+1* to hold that class.
+
+(defvar *class-t+1*)
 
 ;;; Determine whether a method is applicable to a sequence of
 ;;; arguments.  The list of arguments may contain more elements than
@@ -19,7 +28,7 @@
         for argument in arguments
         for class in classes
         do (if (classp specializer)
-               (unless (eq specializer (find-class 't))
+               (unless (eq specializer *class-t+1*)
                  (unless (subclassp class specializer)
                    (return-from definitely-applicable-p nil)))
                (unless (eql (eql-specializer-object specializer) argument)
@@ -66,7 +75,7 @@
          (classes-of-arguments
            (loop for argument in required-arguments
                  for p in profile
-                 collect (if p (class-of+2 argument) (find-class 't))))
+                 collect (if p (class-of+1 argument) *class-t+1*)))
          (lambda-list (generic-function-lambda-list generic-function))
          (precedence-order
            (generic-function-argument-precedence-order generic-function))
@@ -84,3 +93,5 @@
                       classes-of-arguments
                       indices)))))
       result)))
+
+; LocalWords:  specializers specializer
