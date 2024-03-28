@@ -1,5 +1,15 @@
 (cl:in-package #:clostrophilia)
 
+;;; We assume that this code is executed to create functions (ordinary
+;;; and generic) and methods with refinement R.  These functions
+;;; operate on generic functions and methods of refinement R+1.
+;;;
+;;; They also operate on the arguments to the generic functions of
+;;; refinement R+1, and these arguments are of refinement R+2.  When
+;;; we need to know the classes of those arguments, we must call
+;;; CLASS-OF of refinement R+1.  That function is therefore referred
+;;; to here as CLASS-OF+1.
+
 ;;; Determine whether a method is applicable to a sequence of
 ;;; arguments.  The list of arguments may contain more elements than
 ;;; there are required parameters, and in that case the remaining
@@ -56,7 +66,7 @@
          (classes-of-arguments
            (loop for argument in required-arguments
                  for p in profile
-                 collect (if p (class-of-argument argument) (find-class 't))))
+                 collect (if p (class-of+2 argument) (find-class 't))))
          (lambda-list (generic-function-lambda-list generic-function))
          (precedence-order
            (generic-function-argument-precedence-order generic-function))
