@@ -1,5 +1,17 @@
 (cl:in-package #:clostrophilia)
 
+;;; We assume that this code is executed to create functions (ordinary
+;;; and generic) and methods with refinement R.  These functions take
+;;; as arguments generic functions and methods of refinement R+1.
+;;;
+;;; When a method of refinement R+1 was created with an EQL
+;;; specializer, the object of the EQL specializer is compared to an
+;;; argument of a generic function of refinement R+1, which means that
+;;; the object has refinement R+2.  So in order to determine the class
+;;; of such an object, we need to call the function CLASS-OF of
+;;; refinement R+1.  That function is therefore referred to here as
+;;; CLASS-OF+1.
+
 ;;; We use MEMBER (rather than (say) FIND) because MEMBER is a rather
 ;;; simple function that works only on lists, whereas we might want to
 ;;; make FIND a generic function.
@@ -23,7 +35,7 @@
                   (unless (subclassp class specializer)
                     (return-from maybe-applicable-p nil)))
                  ((let ((object (eql-specializer-object specializer)))
-                    (eq (class-of-argument object) class))
+                    (eq (class-of+1 object) class))
                   (setf result :sometimes))
                  (t
                   (return-from maybe-applicable-p nil)))
@@ -126,3 +138,5 @@
                           classes-of-arguments
                           indices)))))
           (values result t)))))
+
+; LocalWords:  specializer
