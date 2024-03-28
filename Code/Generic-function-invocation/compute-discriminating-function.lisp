@@ -349,7 +349,7 @@
          (classes (loop for argument in required-arguments
                         for p in profile
                         collect (if p
-                                    (class-of-+1 argument)
+                                    (class-of+1 argument)
                                     (find-class 't))))
          (relevant-classes (loop for class in classes
                                  for p in profile
