@@ -114,7 +114,7 @@
   (let* ((lambda-list (generic-function-lambda-list generic-function))
          (profile (specializer-profile generic-function))
          (precedence-order
-           (generic-function-argument-precedence-order  generic-function))
+           (generic-function-argument-precedence-order generic-function))
          (indices (precedence-indices lambda-list precedence-order))
          (methods (generic-function-methods generic-function))
          (applicability
