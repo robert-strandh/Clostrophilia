@@ -133,7 +133,7 @@
       (let ((transfer-groups (make-transfer-groups transfers)))
         ;; T and T might not be optimal for the last two arguments.
         (let ((stamp-var (gensym)))
-          `(let ((,stamp-var (stamp ,argument-var)))
+          `(let ((,stamp-var (stamp+1 ,argument-var)))
              ,(compute-test-tree stamp-var default transfer-groups t t))))))
 
 (defun test-trees-from-internal-layer-info (var default layer-info)
