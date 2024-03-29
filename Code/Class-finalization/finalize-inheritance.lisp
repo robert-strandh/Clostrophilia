@@ -46,6 +46,8 @@
 ;;; instead require all the superclasses of a finalized class to be
 ;;; finalized as well.
 
+(defparameter *class-unique-number* 0)
+
 ;;; We define this function as a separate abstraction, because during
 ;;; bootstrapping, it might not necessarily be desirable to call
 ;;; CLASS-FINALIZED-P, and during bootstrapping, we have full control
@@ -65,6 +67,8 @@
     (setf (instance-size class) slot-count)
     (setf (class-slots class) effective-slots))
   (setf (class-default-initargs class) (compute-default-initargs class))
+  (setf (unique-number class)
+        (prog1 *class-unique-number* (incf *class-unique-number*)))
   ;; We set FINALIZED-P to TRUE before allocating the prototype
   ;; instance, because ALLOCATE-INSTANCE checks that the class is
   ;; finalized and if not, signals an error.
