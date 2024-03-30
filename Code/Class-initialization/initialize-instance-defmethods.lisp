@@ -60,4 +60,5 @@
      &key &allow-other-keys)
   (declare (ignore initargs))
   (setf (unique-number class) (new-unique-number))
-  (compute-class-precedence-list class))
+  (setf (precedence-list class)
+        (compute-class-precedence-list class)))
