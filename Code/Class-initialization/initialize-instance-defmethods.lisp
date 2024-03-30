@@ -52,9 +52,12 @@
 (defun new-unique-number ()
   (prog1 *class-unique-number* (incf *class-unique-number*)))
 
+(defgeneric compute-class-precedence-list (class))
+
 (defmethod initialize-instance :after
     ((class built-in-class)
      &rest initargs
      &key &allow-other-keys)
   (declare (ignore initargs))
-  (setf (unique-number class) (new-unique-number)))
+  (setf (unique-number class) (new-unique-number))
+  (compute-class-precedence-list class))
