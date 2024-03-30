@@ -46,3 +46,15 @@
              :name name
              :direct-superclasses defaulted-direct-superclasses
              initargs))))
+
+(defparameter *class-unique-number* 0)
+
+(defun new-unique-number ()
+  (prog1 *class-unique-number* (incf *class-unique-number*)))
+
+(defmethod initialize-instance :after
+    ((class built-in-class)
+     &rest initargs
+     &key &allow-other-keys)
+  (declare (ignore initargs))
+  (setf (unique-number class) (new-unique-number)))
