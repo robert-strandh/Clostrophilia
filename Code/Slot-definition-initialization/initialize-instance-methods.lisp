@@ -72,8 +72,6 @@
        (type t)
        (allocation :instance)
        (initargs '())
-       (readers '())
-       (writers '())
        (documentation nil)
      &allow-other-keys)
   (apply #'call-next-method
@@ -83,7 +81,18 @@
          :type type
          :allocation allocation
          :initargs initargs
+         :documentation documentation
+         keyword-arguments))
+
+(defmethod initialize-instance :around
+    ((slot-definition direct-slot-definition)
+     &rest keyword-arguments
+     &key
+       (readers '())
+       (writers '())
+     &allow-other-keys)
+  (apply #'call-next-method
+         slot-definition
          :readers readers
          :writers writers
-         :documentation documentation
          keyword-arguments))
