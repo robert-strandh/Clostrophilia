@@ -7,7 +7,7 @@
           do (when (equal (variant-signature variant)
                           variant-signature)
                (return-from ensure-method-combination variant)))
-    (let ((new-variant (make-instance 'method-combination
+    (let ((new-variant (make-instance 'standard-method-combination
                          :variant-signature variant-signature
                          :template template)))
       (push new-variant (variants template))
