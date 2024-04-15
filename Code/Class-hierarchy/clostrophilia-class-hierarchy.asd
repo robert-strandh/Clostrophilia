@@ -19,6 +19,7 @@
    (:file "standard-direct-slot-definition")
    (:file "standard-effective-slot-definition")
    (:file "method-combination")
+   (:file "standard-method-combination")
    (:file "specializer")
    (:file "eql-specializer")
    (:file "class")
