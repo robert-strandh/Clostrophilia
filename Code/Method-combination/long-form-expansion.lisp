@@ -18,15 +18,13 @@
     (multiple-value-bind (declarations documentation forms)
         (ecclesia:separate-function-body body)
       `(progn (ensure-method-combination-template
-               :name ',name
-               :documentation ,documentation
-               :variant-signature-determiner
+               ',name
                (lambda ,lambda-list
                  (list ,@lambda-list-variables))
-               :effective-method-form-function
                ,(long-form-lambda
                  lambda-list-variables
                  method-group-specifiers
                  declarations
-                 forms))
+                 forms)
+               :documentation ,documentation)
               ',name))))
