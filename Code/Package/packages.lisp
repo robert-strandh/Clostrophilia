@@ -17,6 +17,7 @@
    #:specializer
    #:eql-specializer
    #:method-combination
+   #:method-combination-template
    #:slot-definition
    #:direct-slot-definition
    #:effective-slot-definition
@@ -91,4 +92,5 @@
    #:allocate-instance
    #:set-funcallable-instance-function
    #:finalize-inheritance
+   #:find-method-combination-template
    #:find-method-combination))
