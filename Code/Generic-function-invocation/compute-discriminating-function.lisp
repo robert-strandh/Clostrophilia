@@ -361,9 +361,6 @@
       (compute-and-install-discriminating-function generic-function)
       (return-from default-discriminating-function
         (apply generic-function arguments)))
-      ;; There should never be a valid entry, because it would
-      ;; then have been found by the TAGBODY preceding this code.
-    ;; (error "entry found"))
     (let ((method-combination
             (generic-function-method-combination generic-function)))
       (multiple-value-bind (applicable-methods ok)
