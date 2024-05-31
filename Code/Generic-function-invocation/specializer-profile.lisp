@@ -13,7 +13,7 @@
          (required (ecclesia:extract-required canonicalized-lambda-list))
          (profile (make-list (length required) :initial-element nil)))
     (loop for method in (generic-function-methods generic-function)
-        for specializers = (method-specializers method)
-        do (setf profile
-                 (compute-specializer-profile profile specializers)))
+          for specializers = (method-specializers method)
+          do (setf profile
+                   (compute-specializer-profile profile specializers)))
     profile))
