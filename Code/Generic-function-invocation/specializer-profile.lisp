@@ -1,7 +1,7 @@
 (cl:in-package #:clostrophilia)
 
 (defun compute-specializer-profile (existing-profile specializers)
-  (loop with class-t = (find-class 't)
+  (loop with class-t = (find-class-t)
         for specializer in specializers
         for p in existing-profile
         collect (if (eq specializer class-t) p t)))
