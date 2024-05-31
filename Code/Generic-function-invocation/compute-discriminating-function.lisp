@@ -361,36 +361,36 @@
       (compute-and-install-discriminating-function generic-function)
       (return-from default-discriminating-function
         (apply generic-function arguments)))
-    (let ((method-combination
-            (generic-function-method-combination generic-function)))
-      (multiple-value-bind (applicable-methods ok)
-          (compute-applicable-methods-using-classes generic-function classes)
-        (when ok
-          (when (null applicable-methods)
-            (apply #'no-applicable-method generic-function arguments))
-          (let* ((effective-method-function
-                   (add-call-cache generic-function
-                                   classes
-                                   relevant-classes
-                                   applicable-methods)))
-            (set-funcallable-instance-function
-             generic-function
-             (compute-discriminating-function generic-function))
-            (return-from default-discriminating-function
-              (apply generic-function arguments))))
-        ;; Come here if we can't compute the applicable methods using
-        ;; only the classes of the arguments.
-        (let ((applicable-methods
-                (compute-applicable-methods generic-function arguments)))
-          (when (null applicable-methods)
-            (apply #'no-applicable-method generic-function arguments))
-          (let* ((effective-method
-                   (compute-effective-method
-                    generic-function
-                    method-combination
-                    (final-methods applicable-methods classes)))
-                 (effective-method-function (compile nil effective-method)))
-            (funcall effective-method-function arguments)))))))
+    (multiple-value-bind (applicable-methods ok)
+        (compute-applicable-methods-using-classes generic-function classes)
+      (when ok
+        (when (null applicable-methods)
+          (apply #'no-applicable-method generic-function arguments))
+        (let* ((effective-method-function
+                 (add-call-cache generic-function
+                                 classes
+                                 relevant-classes
+                                 applicable-methods)))
+          (set-funcallable-instance-function
+           generic-function
+           (compute-discriminating-function generic-function))
+          (return-from default-discriminating-function
+            (apply generic-function arguments))))
+      ;; Come here if we can't compute the applicable methods using
+      ;; only the classes of the arguments.
+      (let ((applicable-methods
+              (compute-applicable-methods generic-function arguments)))
+        (when (null applicable-methods)
+          (apply #'no-applicable-method generic-function arguments))
+        (let* ((method-combination
+                 (generic-function-method-combination generic-function))
+               (effective-method
+                 (compute-effective-method
+                  generic-function
+                  method-combination
+                  (final-methods applicable-methods classes)))
+               (effective-method-function (compile nil effective-method)))
+          (funcall effective-method-function arguments))))))
 
 (defun make-cdr (n)
   (if (= n 0)
