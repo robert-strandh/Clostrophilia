@@ -32,7 +32,9 @@
                (ecclesia:canonicalize-generic-function-lambda-list
                 lambda-list))
              (required
-               (ecclesia:extract-required canonicalized-lambda-list)))
+               (ecclesia:extract-required canonicalized-lambda-list))
+             (specializer-profile
+               (make-list (length required) :initial-element nil)))
         (if argument-precedence-order-p
             (progn
               (unless (ecclesia:proper-list-p
@@ -51,8 +53,12 @@
                 (error 'argument-precedence-order-must-be-permutation
                        :required required
                        :argument-precedence-order argument-precedence-order))
-              (call-next-method))
+              (apply #'call-next-method
+                     generic-function slot-names
+                     :specializer-profile specializer-profile
+                     initargs))
             (apply #'call-next-method
                    generic-function slot-names
                    :argument-precedence-order required
+                   :specializer-profile specializer-profile
                    initargs)))))
