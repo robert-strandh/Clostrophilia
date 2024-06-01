@@ -4,6 +4,10 @@
 ;;; http://metamodular.com/CLOS-MOP/generic-function-argument-precedence-order.html
 (defgeneric generic-function-argument-precedence-order (generic-function))
 
+(defgeneric specializer-profile (generic-function))
+
+(defgeneric (setf specializer-profile) (new-profile generic-function))
+
 ;;; For the specification of this generic function, see
 ;;; http://metamodular.com/CLOS-MOP/generic-function-declarations.html
 (defgeneric generic-function-declarations (generic-function))
@@ -40,8 +44,9 @@
     :initarg :argument-precedence-order
     :reader generic-function-argument-precedence-order)
    (%specializer-profile
-    :initarg :specializer-profile)
-   (%declarations 
+    :initarg :specializer-profile
+    :accessor specializer-profile)
+   (%declarations
     :initarg :declarations
     :reader generic-function-declarations)
    (%method-class 
