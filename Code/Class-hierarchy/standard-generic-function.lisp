@@ -39,6 +39,8 @@
   ((%argument-precedence-order
     :initarg :argument-precedence-order
     :reader generic-function-argument-precedence-order)
+   (%specializer-profile
+    :initarg :specializer-profile)
    (%declarations 
     :initarg :declarations
     :reader generic-function-declarations)
