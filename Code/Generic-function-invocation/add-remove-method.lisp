@@ -121,7 +121,12 @@
       (remove-method generic-function method-to-remove)))
   ;; Add this method to the set of methods of this generic function.
   (push method (generic-function-methods generic-function))
-  (setf (call-history generic-function) '())
+  (let* ((profile (specializer-profile generic-function))
+         (specializers (method-specializers method))
+         (new-profile (compute-specializer-profile profile specializers)))
+    (setf (specializer-profile generic-function) new-profile)
+    (unless (equal profile new-profile)
+      (setf (call-history generic-function) '())))
   ;; Associate GENERIC-FUNCTION with METHOD.
   (setf (method-generic-function method) generic-function)
   ;; Call ADD-DIRECT-METHOD for each of the specializers of METHOD.
@@ -165,6 +170,8 @@
   ;; Remove METHOD from the methods of GENERIC-FUNCTION.
   (setf (generic-function-methods generic-function)
         (remove method (generic-function-methods generic-function)))
+  ;; Compute a new specializer profile for the generic function.
+  (compute-and-set-specializer-profile generic-function)
   ;; Call REMOVE-DIRECT-METHOD for each of the specializers of METHOD.
   (loop for specializer in (method-specializers method)
         do (remove-direct-method specializer method))
