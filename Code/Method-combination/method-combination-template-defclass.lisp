@@ -29,4 +29,4 @@
    ;; in the body of the DEFINE-METHOD-COMBINATION form.
    (%effective-method-form-function :initarg :effective-method-form-function
                                     :reader effective-method-form-function)
-   (%documentation :initarg :documentation)))
+   (%documentation :initarg :documentation :initform nil)))
