@@ -9,7 +9,7 @@
   (let ((location (slot-definition-location slot)))
     (if (consp location)
         (setf (car location) +unbound-slot-value+)
-        (slot-makunbound-using-index object location)))
+        (slot-makunbound-using-location+1 object location)))
   nil)
 
 (defmethod slot-makunbound-using-class
