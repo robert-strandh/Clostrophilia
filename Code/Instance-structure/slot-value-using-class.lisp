@@ -9,7 +9,7 @@
          (value
            (if (consp location)
                (car location)
-               (standard-instance-access object location))))
+               (slot-value-using-location+1 object location))))
     (if (eq value +unbound-slot-value+)
         (slot-unbound class object (slot-definition-name slot))
         value)))
@@ -43,7 +43,7 @@
   (let ((location (slot-definition-location slot)))
     (if (consp location)
         (setf (car location) new-value)
-        (setf (standard-instance-access object location) new-value))))
+        (setf (slot-value-using-location+1 object location) new-value))))
 
 (defmethod (setf slot-value-using-class)
     (new-value
