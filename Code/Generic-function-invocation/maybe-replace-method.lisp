@@ -22,7 +22,7 @@
                          (declare (ignorable arguments next-methods))
                          ,(if (consp location)
                               `(car ',location)
-                              `(standard-instance-access
+                              `(slot-value-using-location+1
                                 (car arguments) ,location)))))
                (make-instance
                    (find-class 'standard-reader-method)
@@ -42,7 +42,7 @@
                          ,(if (consp location)
                               `(setf (car ',location)
                                      (car arguments))
-                              `(setf (standard-instance-access
+                              `(setf (slot-value-using-location+1
                                       (cadr arguments) ,location)
                                      (car arguments))))))
                (make-instance
