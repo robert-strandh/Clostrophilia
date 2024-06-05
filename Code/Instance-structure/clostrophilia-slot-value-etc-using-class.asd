@@ -3,8 +3,7 @@
 (defsystem "clostrophilia-slot-value-etc-using-class"
   :serial t
   :components
-  ((:file "slot-bound-using-index")
-   (:file "slot-missing")
+  ((:file "slot-missing")
    (:file "slot-unbound")
    (:file "slot-boundp-using-class")
    (:file "slot-value-using-class")
