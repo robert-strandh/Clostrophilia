@@ -38,6 +38,6 @@
          (stamp (unique-number class))
          (slots (class-slots class))
          (instance (allocate-general-instance class size)))
-    (setf (standard-instance-access instance -2) stamp
-          (standard-instance-access instance -1) slots)
+    (setf (slot-value-using-location+1 instance -2) stamp
+          (slot-value-using-location+1 instance -1) slots)
     instance))
