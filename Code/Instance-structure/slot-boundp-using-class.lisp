@@ -1,5 +1,7 @@
 (cl:in-package #:clostrophilia)
 
+(defvar +unbound-slot-value+)
+
 ;;; For the specification of this generic function, see
 ;;; http://metamodular.com/CLOS-MOP/slot-boundp-using-class.html
 (defgeneric slot-boundp-using-class (class object slot))
