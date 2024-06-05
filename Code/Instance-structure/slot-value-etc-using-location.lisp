@@ -1,8 +1,10 @@
 (cl:in-package #:clostrophilia)
 
+(defvar +unbound-slot-value+)
+
 (defun slot-boundp-using-location (object location)
   (not (eq (standard-instance-access object location)
-           +unbound-slot-value+))
+           +unbound-slot-value+)))
 
 ;;; This function is called only when it is known that the slot is
 ;;; bound.
