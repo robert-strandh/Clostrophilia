@@ -1,6 +1,6 @@
 (cl:in-package asdf-user)
 
-(defsystem "clostrophilia-instance-structure"
+(defsystem "clostrophilia-slot-value-etc-using-class"
   :serial t
   :components
   ((:file "slot-bound-using-index")
