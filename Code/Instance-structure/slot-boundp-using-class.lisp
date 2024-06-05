@@ -9,7 +9,7 @@
   (let ((location (slot-definition-location slot)))
     (if (consp location)
         (not (eq (car location) +unbound-slot-value+))
-        (slot-boundp-using-index object location))))
+        (slot-boundp-using-location+1 object location))))
 
 (defmethod slot-boundp-using-class
     ((class standard-class)
