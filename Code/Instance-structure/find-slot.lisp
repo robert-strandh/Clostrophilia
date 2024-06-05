@@ -7,4 +7,5 @@
                      :test #'eq :key #'slot-definition-name)))
     (if (null slot)
         (apply #'slot-missing class object slot-name operation
-               (if (null new-value-p) '() (list new-value))))))
+               (if (null new-value-p) '() (list new-value)))
+        slot)))
