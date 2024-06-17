@@ -46,7 +46,9 @@
 ;;; same target.
 (defun make-transfer-groups (transfers)
   (loop with trcs = (loop for trc in transfers
-                          collect (make-transfer (unique-number (transfer-label trc))
+                          for label = (transfer-label trc)
+                          for unique-number = (unique-number label)
+                          collect (make-transfer unique-number
                                                  (transfer-target trc)))
         with trs = (sort trcs #'< :key #'transfer-label)
         with first = (car trs)
