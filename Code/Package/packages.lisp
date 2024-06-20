@@ -89,7 +89,7 @@
    #:writer-method-class
    #:add-method
    #:remove-method
-   #:allocate-instance
+   #:allocate-instance #:allocate-instance-using-class
    #:set-funcallable-instance-function
    #:finalize-inheritance
    #:find-method-combination-template
