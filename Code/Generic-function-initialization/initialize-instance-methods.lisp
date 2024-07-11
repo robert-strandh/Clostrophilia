@@ -30,4 +30,3 @@
          :documentation documentation
          :method-class method-class
          initargs))
-
