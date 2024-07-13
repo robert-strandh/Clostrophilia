@@ -33,7 +33,7 @@
   `(macrolet ((make-method (make-method-form)
                 (let ((arguments-var (gensym))
                       (next-methods-var (gensym)))
-                  (make-method-instance ,method-class
+                  (make-instance ,method-class
                     :qualifiers '()
                     :lambda-list '()
                     :specializers '()
