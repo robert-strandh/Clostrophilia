@@ -6,7 +6,7 @@
 (defun valid-quality-p (quality)
   (or (member quality *qualities*)
       (and (ecclesia:proper-list-p quality)
-           (= (length quality 2))
+           (= (length quality) 2)
            (member (first quality) *qualities*)
            (typep (second quality) '(integer 0 3)))))
 
