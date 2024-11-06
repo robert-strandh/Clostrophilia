@@ -8,13 +8,17 @@
 
 @contents
 
-@node Top
-@top Clostrophilia
+@macro clostrophilia{}
+Clostrophilia
+@end macro
 
-This document describes the implementation of Clostrophilia.
+@node Top
+@top @clostrophilia{}
+
+This document describes the implementation of @clostrophilia{}.
 
 @menu
-* Purpose:: The reason for the existence of Clostrophilia.
+* Purpose:: The reason for the existence of @clostrophilia{}.
 * Index:: Complete index.
 @end menu
 
