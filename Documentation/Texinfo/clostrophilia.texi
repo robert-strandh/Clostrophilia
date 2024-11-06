@@ -12,6 +12,10 @@
 Clostrophilia
 @end macro
 
+@macro commonlisp{}
+Common Lisp
+@end macro
+
 @macro asdf{}
 ASDF
 @end macro
