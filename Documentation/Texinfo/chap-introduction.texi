@@ -1,5 +1,5 @@
-@node Purpose
-@chapter Purpose
+@node Introduction
+@chapter Introduction
 
 @clostrophilia{} provides a complete implementation of the Common Lisp
 object system. 
