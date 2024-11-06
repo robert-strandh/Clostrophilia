@@ -11,3 +11,9 @@ objects, @clostrophilia{} does not assume any particular
 representation.  Instead, it requires client code to define functions
 for allocating a standard object and for accessing the different parts
 of such an object.
+
+Contrary to other implementations of CLOS such as PCL,
+@clostrophilia{} is not designed to be added to an existing pre-ANSI
+implementation of @commonlisp{}.  Instead, it is designed to be
+bootstrapped using an existing conforming implementation of
+@commonlisp{}.
