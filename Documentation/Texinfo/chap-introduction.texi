@@ -2,4 +2,6 @@
 @chapter Introduction
 
 @clostrophilia{} provides a complete implementation of the Common Lisp
-object system. 
+object system.  The code is divided into several @asdf{} systems,
+where each system contains code for some aspect of the specification
+in the book ``The Art of the Metaobject Protocol''.
