@@ -23,10 +23,12 @@ This document describes the implementation of @clostrophilia{}.
 
 @menu
 * Introduction:: What @clostrophilia{} provides and how.
+* Class initializatin:: Initialization of Class Metaobjects
 * Index:: Complete index.
 @end menu
 
 @include chap-introduction.texi
+@include chap-class-initialization.texi
 
 @node Index
 @unnumbered Index

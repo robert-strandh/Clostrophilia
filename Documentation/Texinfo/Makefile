@@ -1,4 +1,4 @@
-clostrophilia.pdf: clostrophilia.texi chap-introduction.texi
+clostrophilia.pdf: clostrophilia.texi chap-introduction.texi chap-class-initialization.texi
 	texi2pdf clostrophilia.texi
 
 clean:
