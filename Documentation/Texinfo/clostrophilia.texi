@@ -18,7 +18,7 @@ Clostrophilia
 This document describes the implementation of @clostrophilia{}.
 
 @menu
-* Purpose:: The reason for the existence of @clostrophilia{}.
+* Introduction:: What @clostrophilia{} provides and how.
 * Index:: Complete index.
 @end menu
 
