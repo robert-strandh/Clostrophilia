@@ -22,7 +22,7 @@ This document describes the implementation of @clostrophilia{}.
 * Index:: Complete index.
 @end menu
 
-@include chap-purpose.texi
+@include chap-introduction.texi
 
 @node Index
 @unnumbered Index

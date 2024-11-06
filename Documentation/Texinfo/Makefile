@@ -1,4 +1,4 @@
-clostrophilia.pdf: clostrophilia.texi chap-purpose.texi
+clostrophilia.pdf: clostrophilia.texi chap-introduction.texi
 	texi2pdf clostrophilia.texi
 
 clean:
