@@ -12,6 +12,10 @@
 Clostrophilia
 @end macro
 
+@macro asdf{}
+ASDF
+@end macro
+
 @node Top
 @top @clostrophilia{}
 
