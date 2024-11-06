@@ -1,0 +1,28 @@
+\input texinfo
+
+@settitle Clostrophilia, an implementation of the Common Lisp package system.
+
+@titlepage
+@title Clostrophilia documentation
+@end titlepage
+
+@contents
+
+@node Top
+@top Clostrophilia
+
+This document describes the implementation of Clostrophilia.
+
+@menu
+* Purpose:: The reason for the existence of Clostrophilia.
+* Index:: Complete index.
+@end menu
+
+@include chap-purpose.texi
+
+@node Index
+@unnumbered Index
+
+@printindex cp
+
+@bye
