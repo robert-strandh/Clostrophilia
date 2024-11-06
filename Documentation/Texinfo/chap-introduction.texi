@@ -5,3 +5,9 @@
 object system.  The code is divided into several @asdf{} systems,
 where each system contains code for some aspect of the specification
 in the book ``The Art of the Metaobject Protocol''.
+
+Since client code may want its own ways of representing standard
+objects, @clostrophilia{} does not assume any particular
+representation.  Instead, it requires client code to define functions
+for allocating a standard object and for accessing the different parts
+of such an object.
