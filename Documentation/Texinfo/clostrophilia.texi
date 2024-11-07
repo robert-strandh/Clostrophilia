@@ -18,11 +18,13 @@ This document describes the implementation of @clostrophilia{}.
 @menu
 * Introduction:: What @clostrophilia{} provides and how.
 * Class initialization:: Initialization of Class Metaobjects
+* Generic Function initialization:: Initialization of Generic Function Metaobjects
 * Index:: Complete index.
 @end menu
 
 @include chap-introduction.texi
 @include chap-class-initialization.texi
+@include chap-generic-function-initialization.texi
 
 @node Index
 @unnumbered Index

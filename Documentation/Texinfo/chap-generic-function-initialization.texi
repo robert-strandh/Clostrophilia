@@ -1,0 +1,6 @@
+@node Initialization of Generic Function Metaobjects
+@chapter Initialization of Generic Function Metaobjects
+
+This chapter covers the @asdf{} system for initialization of generic function
+metaobjects as documented in
+@url{http://metamodular.com/CLOS-MOP/initialization-of-generic-function-metaobjects.html}
