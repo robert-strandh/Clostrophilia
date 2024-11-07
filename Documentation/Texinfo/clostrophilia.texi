@@ -17,7 +17,7 @@ This document describes the implementation of @clostrophilia{}.
 
 @menu
 * Introduction:: What @clostrophilia{} provides and how.
-* Class initializatin:: Initialization of Class Metaobjects
+* Class initialization:: Initialization of Class Metaobjects
 * Index:: Complete index.
 @end menu
 
