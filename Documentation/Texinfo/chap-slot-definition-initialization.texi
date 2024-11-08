@@ -1,0 +1,6 @@
+@node Initialization of Slot Definition Metaobjects
+@chapter Initialization of Slot Definition Metaobjects
+
+This chapter covers the @asdf{} system for initialization of slot definition
+metaobjects as documented in
+@url{http://metamodular.com/CLOS-MOP/initialization-of-slot-definition-metaobjects.html}

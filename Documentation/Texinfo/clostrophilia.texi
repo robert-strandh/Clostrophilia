@@ -20,6 +20,7 @@ This document describes the implementation of @clostrophilia{}.
 * Class initialization:: Initialization of Class Metaobjects
 * Generic Function initialization:: Initialization of Generic Function Metaobjects
 * Method initialization:: Initialization of Method Metaobjects
+* Slot Definition initialization:: Initialization of Slot Definition Metaobjects
 * Index:: Complete index.
 @end menu
 
@@ -27,6 +28,7 @@ This document describes the implementation of @clostrophilia{}.
 @include chap-class-initialization.texi
 @include chap-generic-function-initialization.texi
 @include chap-method-initialization.texi
+@include chap-slot-definition-initialization.texi
 
 @node Index
 @unnumbered Index
