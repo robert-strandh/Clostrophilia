@@ -1,0 +1,6 @@
+@node Initialization of Method Metaobjects
+@chapter Initialization of Method Metaobjects
+
+This chapter covers the @asdf{} system for initialization of method
+metaobjects as documented in
+@url{http://metamodular.com/CLOS-MOP/initialization-of-method-metaobjects.html}
