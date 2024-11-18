@@ -5,6 +5,20 @@ This chapter covers the @asdf{} system for initialization of class
 metaobjects as documented in
 @url{http://metamodular.com/CLOS-MOP/initialization-of-class-metaobjects2.html}
 
+@section Direct slot-definition class
+
+This section covers the code specified in
+@url{http://metamodular.com/CLOS-MOP/direct-slot-definition-class.html}
+
+During class initialization and reinitialization, canonicalized slot
+specifications are converted to slot-definition metaobjects.  The
+exact class to use for the slot-definition metaobject is determined by
+a call to the generic function @code{direct-slot-definition-class}.
+
+The file @code{direct-slot-definition-class.lisp} contains the
+definition of this generic function and the method required by the
+specification.
+
 @section Reader and writer method classes
 
 This section covers the code specified in
