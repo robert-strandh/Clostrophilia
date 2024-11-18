@@ -4,3 +4,33 @@
 This chapter covers the @asdf{} system for initialization of class
 metaobjects as documented in
 @url{http://metamodular.com/CLOS-MOP/initialization-of-class-metaobjects2.html}
+
+@section Reader and writer method classes
+
+This section covers the code specified in
+@url{http://metamodular.com/CLOS-MOP/reader-method-class.html} and
+@url{http://metamodular.com/CLOS-MOP/writer-method-class.html}
+
+During class initialization and reinitialization, canonicalized slot
+specifications are converted to slot-definition metaobjects and slot
+reader and writer methods are created.  The exact class to be used for
+a slot-reader or slot-writer method is determined by a call to
+@code{reader-method-class} and @code{writer-method-class}
+respectively.
+
+Each of these functions has two required parameters and a @code{&rest}
+parameter for initialization arguments.  The first required argument
+is the class metaobject being initialized or reinitialized.  The
+second required argument is the direct slot-definition metaobject
+resulting from the conversion of the canonicalized slot specification.
+
+The file @code{reader-method-class.lisp} contains the definition of
+the generic function @code{reader-method-class} and the two methods
+required by the specification.
+
+The file @code{writer-method-class.lisp} contains the definition of
+the generic function @code{writer-method-class} and the two methods
+required by the specification.
+
+@c  LocalWords:  reinitialization canonicalized metaobjects
+@c  LocalWords:  metaobject
