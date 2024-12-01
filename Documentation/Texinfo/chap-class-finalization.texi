@@ -1,0 +1,9 @@
+@node Finalization of Class Metaobjects
+@chapter Finalization of Class Metaobjects
+
+This chapter covers the @asdf{} system for finalization of class
+metaobjects as documented in
+@url{http://metamodular.com/CLOS-MOP/class-finalization-protocol.html}
+
+@c  LocalWords:  canonicalized metaobjects
+@c  LocalWords:  metaobject

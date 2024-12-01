@@ -29,6 +29,7 @@ This document describes the implementation of @clostrophilia{}.
 @include chap-generic-function-initialization.texi
 @include chap-method-initialization.texi
 @include chap-slot-definition-initialization.texi
+@include chap-class-finalization.texi
 
 @node Index
 @unnumbered Index
