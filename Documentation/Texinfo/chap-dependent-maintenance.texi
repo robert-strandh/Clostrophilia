@@ -1,0 +1,9 @@
+@node Dependent Maintenance
+@chapter Dependent Maintenance
+
+This chapter covers the @asdf{} system for the dependent maintenance
+protocol as documented in
+@url{http://metamodular.com/CLOS-MOP/dependent-maintenance-protocol.htm}
+
+@c  LocalWords:  canonicalized metaobjects
+@c  LocalWords:  metaobject
