@@ -52,7 +52,7 @@
      &allow-other-keys)
   (unless slot-definition-p
     (error 'slot-definition-must-be-supplied))
-  (unless (typep slot-definition 'direct-slot-definition)
+  (unless (direct-slot-definition-p slot-definition)
     (error 'slot-definition-must-be-direct-slot-definition
            :slot-definition slot-definition)))
 
