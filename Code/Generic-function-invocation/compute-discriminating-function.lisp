@@ -277,8 +277,8 @@
 
 (defun method-equal (method1 method2)
   (or (eq method1 method2)
-      (and (typep method1 'standard-accessor-method)
-           (typep method2 'standard-accessor-method)
+      (and (standard-accessor-method-p method1)
+           (standard-accessor-method-p method2)
            (eql (slot-location method1)
                 (slot-location method2)))))
 
