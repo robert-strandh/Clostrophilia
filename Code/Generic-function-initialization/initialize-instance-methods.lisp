@@ -5,7 +5,7 @@
      &key
        method-combination
      &allow-other-keys)
-  (unless (typep method-combination 'method-combination)
+  (unless (method-combination-p method-combination)
     (error 'method-combination-option-must-be-method-combination
            :method-combination method-combination)))
 
