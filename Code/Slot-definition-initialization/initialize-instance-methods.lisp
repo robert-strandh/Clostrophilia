@@ -37,7 +37,7 @@
         unless (symbolp initarg)
           do (error 'initarg-must-be-symbol
                     :initarg initarg))
-  (when (and readers-p (not (typep slot-definition 'direct-slot-definition)))
+  (when (and readers-p (not (direct-slot-definition-p slot-definition)))
     (error 'readers-supplied-but-slot-definition-is-not-direct
            :readers readers
            :datum slot-definition))
@@ -48,7 +48,7 @@
         unless (valid-function-name-p reader)
           do (error 'reader-must-be-a-valid-function-name
                     :reader reader))
-  (when (and writers-p (not (typep slot-definition 'direct-slot-definition)))
+  (when (and writers-p (not (direct-slot-definition-p slot-definition)))
     (error 'writers-supplied-but-slot-definition-is-not-direct
            :writers writers
            :datum slot-definition))
