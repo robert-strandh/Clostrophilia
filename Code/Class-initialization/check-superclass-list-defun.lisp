@@ -5,7 +5,7 @@
     (error 'superclasses-must-be-proper-list
            :superclasses superclasses))
   (loop for superclass in superclasses
-        do (unless (typep superclass 'class)
+        do (unless (classp superclass)
              (error 'type-error
                     :datum superclass
                     :expected-type 'class))
