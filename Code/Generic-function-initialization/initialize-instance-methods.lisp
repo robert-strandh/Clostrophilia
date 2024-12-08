@@ -5,6 +5,11 @@
      &key
        method-combination
      &allow-other-keys)
+  ;; FIXME: Perhaps signal a more specific condition here.
+  (set-funcallable-instance-function
+   generic-function
+   (lambda (&rest arguments)
+     (apply #'no-applicable-method generic-function arguments)))
   (unless (method-combination-p method-combination)
     (error 'method-combination-option-must-be-method-combination
            :method-combination method-combination)))
