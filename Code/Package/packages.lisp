@@ -45,22 +45,22 @@
    #:generic-function-method-class
    #:generic-function-name
    ;; Accessors for method metaobjects
-   method-generic-function
-   method-function
-   method-lambda-list
-   method-specializers
-   method-qualifiers
-   accessor-method-slot-definition
+   #:method-generic-function
+   #:method-function
+   #:method-lambda-list
+   #:method-specializers
+   #:method-qualifiers
+   #:accessor-method-slot-definition
    ;; Accessors for slot-definition metaobjects
-   slot-definition-name
-   slot-definition-type
-   slot-definition-readers
-   slot-definition-writers
-   slot-definition-location
-   slot-definition-allocation
-   slot-definition-initargs
-   slot-definition-initform
-   slot-definition-initfunction
+   #:slot-definition-name
+   #:slot-definition-type
+   #:slot-definition-readers
+   #:slot-definition-writers
+   #:slot-definition-location
+   #:slot-definition-allocation
+   #:slot-definition-initargs
+   #:slot-definition-initform
+   #:slot-definition-initfunction
    ;; Condition types.
    #:unknown-method-combination
    #:order-must-be-most-specific-first-or-last
@@ -74,17 +74,17 @@
    #:name-of-method-group-specifier-must-be-symbol
    #:no-applicable-method-error
    ;; Dependent maintenance
-   add-dependent
-   remove-dependent
-   map-dependents
-   update-dependent
+   #:add-dependent
+   #:remove-dependent
+   #:map-dependents
+   #:update-dependent
    ;; Direct subclasses
-   add-direct-subclass
-   remove-direct-subclass
+   #:add-direct-subclass
+   #:remove-direct-subclass
    ;; Direct methods
-   add-direct-method
-   remove-direct-methods
-   specializer-direct-methods
+   #:add-direct-method
+   #:remove-direct-methods
+   #:specializer-direct-methods
    ;; Diverse
    #:reader-method-class
    #:writer-method-class
