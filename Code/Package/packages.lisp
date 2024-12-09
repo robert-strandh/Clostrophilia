@@ -28,6 +28,7 @@
    #:standard-writer-method
    ;; Accessors for class metaobjects. 
    #:class-name
+   #:class-direct-subclasses
    #:class-direct-superclasses
    #:class-direct-slots
    #:class-direct-default-initargs
