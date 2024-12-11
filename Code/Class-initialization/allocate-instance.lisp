@@ -8,9 +8,9 @@
 (defgeneric allocate-instance (class &rest initargs))
 
 ;;; The specification includes three methods for this generic
-;;; function.  The first one is specialized for STANDARD-CLASS.  The
-;;; second one is specialized for FUNCALLABLE-STANDARD-CLASS.  The
-;;; third one is specialized for BUILT-IN-CLASS.  The last one signals
+;;; function.  The first one is specialized to STANDARD-CLASS.  The
+;;; second one is specialized to FUNCALLABLE-STANDARD-CLASS.  The
+;;; third one is specialized to BUILT-IN-CLASS.  The last one signals
 ;;; an error.
 
 ;;; The AMOP says that ALLOCATE-INSTANCE checks whether the class is
@@ -21,13 +21,13 @@
 ;;; in MAKE-INSTANCE, before ALLOCATE-INSTANCE is called, which makes
 ;;; more sense.
 
-;;; This function implements the action of the method on
-;;; ALLOCATE-INSTANCE, specialized to REGULAR-CLASS.  Every instance
-;;; of a regular class has two initial cells (the STAMP, and the list
-;;; of effective slots of the class) in the rack.  These cells are not
-;;; counted among the slots, because they are accessed directly, using
-;;; offsets.  For that reason, we must allocate more slot storage than
-;;; there are slots with :INSTANCE allocation.
+;;; This method on ALLOCATE-INSTANCE is specialized to REGULAR-CLASS.
+;;; Every instance of a regular class has two initial cells (the
+;;; STAMP, and the list of effective slots of the class) in the rack.
+;;; These cells are not counted among the slots, because they are
+;;; accessed directly, using offsets.  For that reason, we must
+;;; allocate more slot storage than there are slots with :INSTANCE
+;;; allocation.
 
 (defmethod allocate-instance
     ((class regular-class)
