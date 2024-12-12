@@ -94,4 +94,5 @@
    #:set-funcallable-instance-function
    #:finalize-inheritance
    #:find-method-combination-template
-   #:find-method-combination))
+   #:find-method-combination
+   #:classp))
