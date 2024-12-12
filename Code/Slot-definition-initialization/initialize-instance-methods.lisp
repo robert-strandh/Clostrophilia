@@ -1,8 +1,12 @@
 (cl:in-package #:clostrophilia)
 
 (defun valid-function-name-p (function-name)
-  (typep function-name
-         '(or symbol (cons (eql setf) (cons symbol null)))))
+  (or (symbolp function-name)
+      (and (consp function-name)
+           (eql (car function-name) 'setf)
+           (consp (cdr function-name))
+           (symbolp (cadr function-name))
+           (null (cddr function-name)))))
 
 (defmethod initialize-instance :before
     ((slot-definition slot-definition)
