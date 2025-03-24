@@ -60,7 +60,7 @@
         for tr in rest
         do (if (and (eq (transfer-target tr)
                         (transfer-group-target (car result)))
-                    (= (transfer-label tr)
+                    (small-integer= (transfer-label tr)
                        (interval-end (transfer-group-interval (car result)))))
                (incf (interval-end (transfer-group-interval (car result))))
                (push (make-transfer-group
@@ -82,7 +82,7 @@
 ;;; last interval respectively.
 (defun compute-test-tree (var default transfer-groups open-inf-p open-sup-p)
   (let ((length (length transfer-groups)))
-    (if (= length 1)
+    (if (small-integer= length 1)
         (let* ((transfer-group (car transfer-groups))
                (interval (transfer-group-interval transfer-group))
                (start (interval-start interval))
@@ -90,8 +90,8 @@
                (target (transfer-group-target transfer-group)))
           (if open-inf-p
               (if open-sup-p
-                  (if (= end (1+ start))
-                      `(if (= ,var ,start)
+                  (if (small-integer= end (1+ start))
+                      `(if (small-integer= ,var ,start)
                            (go ,target)
                            (go ,default))
                       `(if (< ,var ,start)
