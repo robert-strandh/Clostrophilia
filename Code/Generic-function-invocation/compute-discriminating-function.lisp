@@ -283,7 +283,7 @@
                 (slot-location method2)))))
 
 (defun methods-equal (methods1 methods2)
-  (and (= (length methods1) (length methods2))
+  (and (small-integer= (length methods1) (length methods2))
        (every #'method-equal methods1 methods2)))
 
 ;;; This function takes a generic function, a list of classes of all
@@ -393,7 +393,7 @@
           (funcall effective-method-function arguments))))))
 
 (defun make-cdr (n)
-  (if (= n 0)
+  (if (small-integer= n 0)
       'arguments
       (list 'cdr (make-cdr (1- n)))))
 
@@ -438,7 +438,10 @@
       ;; and skip the construction of the automaton.  Instead, we just
       ;; generate a call to the only effective method in the single
       ;; entry.
-      (when (zerop active-arg-count)
+      ;;
+      ;; We do not use ZEROP because it may call = which is a generic
+      ;; function.
+      (when (small-integer= active-arg-count 0)
         (let* ((call-cache (first call-history))
                (effective-method (effective-method-cache call-cache)))
           (return-from make-discriminating-function-lambda
