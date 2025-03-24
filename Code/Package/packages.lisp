@@ -95,4 +95,5 @@
    #:finalize-inheritance
    #:find-method-combination-template
    #:find-method-combination
-   #:classp))
+   #:classp
+   #:small-integer=))
