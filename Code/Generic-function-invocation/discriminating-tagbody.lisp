@@ -111,10 +111,11 @@
                (left (subseq transfer-groups 0 half))
                (right (subseq transfer-groups half))
                ;; FIXME: these cars and cdrs should be abstracted.
-               (open-p (/= (interval-end
-                            (transfer-group-interval (car (last left))))
-                           (interval-start
-                            (transfer-group-interval (car right))))))
+               (open-p (not (small-integer=
+                             (interval-end
+                              (transfer-group-interval (car (last left))))
+                             (interval-start
+                              (transfer-group-interval (car right)))))))
           ;; FIXME: these cars and cdrs should be abstracted.
           `(if (< ,var ,(interval-start (transfer-group-interval (car right))))
                ,(compute-test-tree var default left open-inf-p open-p)
