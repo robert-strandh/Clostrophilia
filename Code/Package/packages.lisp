@@ -96,4 +96,5 @@
    #:find-method-combination-template
    #:find-method-combination
    #:classp
-   #:small-integer=))
+   #:small-integer=
+   #:small-integer<))
