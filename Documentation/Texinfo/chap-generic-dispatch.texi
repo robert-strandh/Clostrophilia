@@ -163,3 +163,27 @@ the automaton is computed from the call history.
 If the call history has a large number of entries, a different technique
 may be used.  The generic function @code{print-object} may be such a
 function.  A simple hashing scheme might be better in that case.
+
+@section Accessor methods
+
+Accessor methods are treated specially when an effective method is
+computed from a list of applicable methods.  Rather than applying the
+default scheme of generating a call to the method function, when any
+of the methods returned by
+@code{compute-applicable-methods-using-classes} is an accessor
+method, @code{compute-discriminating-function}, replaces such a
+method by one that makes a direct access to the slot of the instance.
+It does this by determining the @emph{slot location} of the slot in
+instances of the class of the argument.  The substitution is
+@emph{not} done by @code{compute-applicable-methods-using-classes}
+itself, because the list of (sorted) methods returned by that function
+is used for the purpose of caching in order to avoid recomputing an
+effective method. 
+
+Since the location of a slot may change when the class is
+reinitialized, an effective method computed this way may become
+invalid as a result.  For that reason, whenever a class is
+reinitialized, any call history entries with methods specializing on
+that class or any of its subclasses are removed.  This way, a call to
+@code{compute-applicable-methods-using-classes} will be forced, and
+a new location will be determined.
