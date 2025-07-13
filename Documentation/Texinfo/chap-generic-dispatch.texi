@@ -56,3 +56,110 @@ change as a result of being reinitialized, but for reasons explained
 below, we remove the entry independently of whether this is the case.
 If an entry was removed, a new discriminating function is computed and
 installed.
+
+@section The discriminatinig function
+
+The discriminating function of a generic function is computed from the
+call history.
+
+If the call history has relatively few entries, then the
+discriminating function computes the @emph{identification}
+of each of the required arguments.  It then uses numeric comparisons
+in a tree-shaped computation to determine which (if any) effective
+method to invoke.  In effect, the discriminating function becomes a
+very simple @emph{automaton} where each transition is determined by a
+comparison between two small integers.  The class numbers become
+constants inside the compiled code of the discriminating function,
+making comparison fast.  Each argument identification is tested from
+left to right, without taking the @emph{argument precedence order} of
+the generic function into account.  For each argument, the set of
+possible effective methods is filtered by a binary search.  The search
+is based on @emph{intervals of class numbers} as opposed to individual
+class numbers.  This optimization can speed up the dispatch
+considerably when an interval of class numbers yield the same
+effective method.  Since it is common that the unique class numbers of
+the classes in an inheritance subtree cluster into contiguous
+intervals, this optimization is often pertinent, and in this
+case, only two tests (for the upper and the lower bound of the
+interval of class numbers) are required to determine whether that
+method is applicable.
+
+The automaton of the discriminating function can not contain class
+numbers that were discarded as a result of classes being
+reinitialized, simply because whenever a class is reinitialized, the
+call history of every generic function specializing on that class or
+any of its subclasses is updated and the discriminating function is
+recomputed.
+
+When a generic function is invoked on some arguments, the first step
+is to compute the @emph{identification} of each required argument.
+The identification is computed as follows:
+
+@itemize @bullet
+@item If the object is a @emph{standard-object}, then it is the
+  @emph{stamp} of the instance, i.e. the unique number of the class of
+  the instance as it was when the instance was created.  The stamp is
+  stored in the first element of the rack of the instance.
+@item Otherwise (i.e., if the object is a @emph{special instance}), it
+  is the @emph{unique number} of the class of the object.
+@end itemize
+
+@noindent
+The identifications are then used by the automaton to find an
+effective method to invoke.  If the automaton fails to find an
+effective method, the following steps are taken:
+
+@enumerate
+@item The identification is checked against the unique
+  number of the class of the object.  If they are not the same, then
+  the object is a standard-object, and it is @emph{obsolete}.  The
+  machinery for updating the instance is invoked, and then a second
+  attempt with the automaton is made. 
+@item If the object identification and the unique number of the
+  class of the object are the same, then
+  @code{compute-applicable-methods-using-classes} is called.  If the
+  first return value is not the empty list and the second return value
+  is @emph{true}, then an effective method is computed and a new
+  entry is added to the call history and the automaton is recomputed.
+  Finally the effective method is invoked.
+@item If the first value is the empty list and the second value is
+  still @emph{true}, then @code{no-applicable-method} is called.
+@item If the second return value is @emph{false}, then 
+ @code{compute-applicable-methods} is called.  If the result is the
+ empty list, then @code{no-applicable-method} is called.  Otherwise
+ an effective method is computed and invoked. 
+@end enumerate
+
+@noindent
+Notice that in most cases, no explicit test is required to determine
+whether an instance is obsolete.  Also notice that for up-to-date
+standard-objects, there is no need to access the class of the
+instance in order to determine an effective method to call.  For
+objects other than standard-objects, there is a small fixed number of
+possible classes, so determining the identification of an object can
+be open coded.
+
+Notice also that many interesting optimizations are possible here when
+the automaton is computed from the call history.
+
+@itemize @bullet
+@item If there is a single entry in the call history, the automaton
+  can be turned into a sequence of equality tests (one for each
+  required argument).  In particular, for an @emph{accessor method},
+  the automaton degenerates into a single test and a call to either
+  a method that directly accesses the slot or to
+  @code{no-applicable-method}. 
+@item In the case of a single entry in the call history, and a single
+  applicable accessor method for that entry, the slot access can be
+  open coded in the automaton. 
+@item In the case above and when in addition the specializer of the
+  accessor method is a class for a special instance (such as
+  @code{fixnum}, @code{character}, or @code{cons}), determining
+  the unique number of the class object is not required.  Instead, the
+  discriminating function can be a simple test for tag bits.
+@end itemize
+
+@noindent
+If the call history has a large number of entries, a different technique
+may be used.  The generic function @code{print-object} may be such a
+function.  A simple hashing scheme might be better in that case.
