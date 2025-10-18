@@ -5,4 +5,4 @@
     (when (null template)
       (error 'unknown-method-combination
              :name name))
-    (^ensure-method-combination client template options)))
+    (ensure-method-combination client template options)))
