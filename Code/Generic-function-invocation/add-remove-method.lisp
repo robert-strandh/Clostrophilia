@@ -12,6 +12,21 @@
 
 (defgeneric add-method (generic-function method))
 
+(setf (documentation 'add-method 'function)
+      (format nil
+              "Lambda list: (GENERIC-FUNCTION METHOD).~@
+               Add a method to a generic function.~@
+               If there is already a method of GENERIC-FUNCTION~@
+               with the same parameter specializers, and the same~@
+               qualifiers, then METHOD replaces the existing one.~@
+               If the lambda list of the method function of METHOD~@
+               is not congruent with that of GENERIC-FUNCTION,~@
+               then an error of type TYPE-ERROR is signaled.~@
+               If METHOD is a method of a generic function other than~@
+               GENERIC-FUNCTION, then an error of type TYPE-ERROR is signaled.~@
+               The consequences are undefined if GENERIC-FUNCTION~@
+               is not a generic function, or of METHOD is not a method."))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;
 ;;; Generic function REMOVE-METHOD.
